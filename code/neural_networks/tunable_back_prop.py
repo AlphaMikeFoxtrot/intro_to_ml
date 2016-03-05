@@ -106,23 +106,30 @@ def tune(depths,breathes,alphas=[0.1]):
 	          [1],
 	          [1],
                   [0]])
-  
+    depth_breathes = [] 
     for depth in xrange(depths[0],depths[1]):
         for breathe in xrange(breathes[0],breathes[1]):
-            print "With",depth,"hidden layers"
-            print "With",breathe,"nodes per layer"
+            #print "With",depth,"hidden layers"
+            #print "With",breathe,"nodes per layer"
             for alpha in alphas:
-                print "With alpha=",alpha
-                train_network(X,y,depth,breathe,alpha=alpha)
+                tmp = {"depth":depth,"breathe":breathe,"alpha":alpha}
+                #print "With alpha=",alpha
+                tmp["errors"] = train_network(X,y,depth,breathe,alpha=alpha)
+                tmp["min_error"] = min(tmp["errors"])
+                tmp["ave_error"] = sum(tmp["errors"])/float(len(tmp["errors"]))
+                depth_breathes.append(tmp)
             if depth ==0: break #this way we don't iterate through everything when breathe doesn't change
+    return depth_breathes
+
 def train_network(X,y,depth,breathe,alpha=0.1,num_iterations=70000):
+    errors = []
     nn = create_nn(X,y,depth,breathe)
     for j in xrange(num_iterations):
         layers = forward_propagate(nn)
         nn,error = back_propagate(layers,nn,alpha=alpha)
-        if j %10000 == 0:   
-            print "Error",np.mean(np.abs(error))
-
+        if j %1000 == 0:   
+            errors.append(np.mean(np.abs(error)))
+    return errors
 
 def run_once(num_hidden_nodes):
     np.random.seed(1)
@@ -143,9 +150,34 @@ def run_once(num_hidden_nodes):
         #if j%100 == 0:
         errors.append(np.mean(np.abs(error)))
     return errors
-        
+
+def sort_by_key(listing,sort_by):
+    """
+    Expects a list of dictionaries 
+    Returns a list of dictionaries sorted by the associated key
+    """
+    keys = []
+    translate = {}
+    for ind,elem in enumerate(listing):
+        key = elem[sort_by]
+        translate[key] = ind
+        keys.append(key)
+    keys.sort()
+    new_ordering = [translate[key] for key in keys]
+    return [listing[i] for i in new_ordering]
+
+
 if __name__ == '__main__':
-    tune([0,5],[4,15],alphas=[0.001,0.1,1,5,10,100])
+    depth_breathes = tune([0,5],[4,7],alphas=[0.001,0.1,1,5,10,15,20,25,30,35,40])
+    depth_breathes = sort_by_key(depth_breathes,"min_error")
+    for elem in depth_breathes[:15]:
+        print "The network had the following attributes"
+        print "Depth",elem["depth"]
+        print "Breathe",elem["breathe"]
+        print "Alpha",elem["alpha"]
+        print "The minimum error for this network was",elem["min_error"]
+        print "The average error for this network was",elem["ave_error"]
+        
     # for i in xrange(0,7):
     #     errors = run_once(i)
     #     print "The minimum error for the this network was",min(errors)

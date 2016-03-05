@@ -148,7 +148,7 @@ def train_network(X,y,depth,breathe,alpha=0.1,num_iterations=70000,dropout=False
         layers = forward_propagate(nn)
         if dropout:
             layers = apply_dropout(nn,layers,X,breathe,dropout_percent) 
-         nn,error = back_propagate(layers,nn,alpha=alpha)
+        nn,error = back_propagate(layers,nn,alpha=alpha)
         if j %1000 == 0:   
             errors.append(np.mean(np.abs(error)))
     return errors

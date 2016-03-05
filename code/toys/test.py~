@@ -1,0 +1,2 @@
+from datastore.models import *
+print locals()

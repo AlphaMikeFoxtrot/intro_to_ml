@@ -1,0 +1,10 @@
+* http://arctrix.com/nas/python/bpnn.py
+* http://pandamatak.com/people/anand/771/html/node37.html
+* https://iamtrask.github.io//2015/07/12/basic-python-network/
+* http://pybrain.org/
+* http://keras.io/
+* http://lasagne.readthedocs.org/en/latest/
+* https://www.coursera.org/learn/machine-learning
+* https://www.udacity.com/course/deep-learning--ud730
+* http://stackoverflow.com/questions/8439194/multiple-output-neural-network
+* http://natureofcode.com/book/chapter-10-neural-networks/

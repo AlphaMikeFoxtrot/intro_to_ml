@@ -1,0 +1,36 @@
+from sys import argv
+from glob import glob
+from subprocess import call
+import os
+
+number_of_db_tables = int(argv[1])
+for i in xrange(1,number_of_db_tables):
+    with open("gen_data"+str(i)+".py","w") as f:
+        f.write("""
+from datastore.models import *
+from datastore import db
+import random
+
+def product(*args):
+    return reduce(lambda x,y: x*y, args[0])
+
+mapping = {
+    1:sum,
+    2:product
+}
+
+for i in xrange(10000):
+    params = [random.gauss(0,1) for elem in xrange(12)]
+    result = mapping[random.randint(1,2)](params)
+    data = params + [result]
+    d = Data"""+str(i)+"""(*data)
+    db.session.add(d)
+    db.session.commit()
+""")
+
+to_run = glob("gen_data*")
+for runner in to_run:
+    call(["python",runner])
+
+for runner in to_run:
+    os.remove(runner)

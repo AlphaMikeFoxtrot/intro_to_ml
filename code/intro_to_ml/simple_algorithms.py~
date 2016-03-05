@@ -1,0 +1,89 @@
+from datastore.models import Data
+import random
+import math
+
+def product(listing):
+    return reduce(lambda x,y:x*y,listing)
+
+def objective_function(params,constants,operator="+"):
+    if operator == "+": return sum([params[ind]*val for ind,val in enumerate(constants)])
+    if operator == "*": return product([params[ind]**val for ind,val in enumerate(constants)])
+
+def score_function(anticipated_result,actual_result):
+    return abs(anticipated_result-actual_result) #lower score is better (means the result is closer to what you actually got)
+
+def rebalance(prior_information):
+    """
+    prior_information: [[score function result, constant1, constant2],...]
+    """
+    for info in prior_information:
+        weight = 1/float(info[0])
+        constant1 = info[1]
+        constant2 = info[2]
+
+def rebalance_strategy1(scores,episolon,constants):
+    score = scores[-1]
+    prev_score = scores[-2]
+    if abs(score - prev_score) < episolon:
+        if prev_score < score:
+            constants = [constants[0]-1/float(score*score),constants[1]+1/float(score*score)]
+        if prev_score > score:
+            constants = [constants[0]+1/float(score*score),constants[1]-1/float(score*score)]
+    else:
+        if prev_score < score:
+            constants = [constants[0]-1/(score * 0.5),constants[1]+1/(score * 0.5)]
+        if prev_score > score:
+            constants = [constants[0]+1/(0.5 * score),constants[1]-1/(0.5 * score)]
+    return constants
+
+def rebalance_strategy2(scores,episolon,constants,count):
+    mean_score = sum(scores)/float(len(scores))
+    cur_score = scores[-1]
+    if mean_score <= episolon:
+        if cur_score < mean_score:
+            constants = [ constants[0] -1/(1.0 + cur_score), constants[1] + 1/(1.0 + cur_score) ]
+        elif abs(cur_score - mean_score) < 1.0:
+            constants = [ constants[0] +1/(1.0 + cur_score), constants[1] - 1/(1.0 + cur_score) ]
+        else:
+            constants = [ constants[0] +1/float(cur_score), constants[1] - 1/float(cur_score) ]
+    else:
+        if cur_score < mean_score:
+            count += 1
+            constants = [ constants[0] -1/float(mean_score), constants[1] + 1/float(mean_score) ]
+        else:
+            constants = [ constants[0] + 1/float(math.log(mean_score)), constants[1] - 1/float(math.log(mean_score)) ]
+    return constants,count
+
+#next strategy - allow for code to vary based on cur_score and how much better I've done the last 10 or 20 times (a quickly fading smoothing affect)
+
+def hill_climb(rebalance_strategy,training,testing):
+    constants = [1,0]
+    episolon = 0.0005
+    scores = [100000]
+    count = 0
+    for elem in training:
+        try:
+            params = [elem.param1,elem.param2]
+        except:
+            pass
+        result = objective_function(params,constants)
+        score = score_function(result,elem.result)
+        scores.append(score)
+        constants,count = rebalance_strategy(scores,episolon,constants,count)
+        
+    return scores,count,constants 
+
+if __name__ == '__main__':
+    db_size = Data.query.count()
+    testing = Data.query.limit(1000).all()
+    #training = [Data.query.offset(random.randint(0,db_size)).first() for i in xrange(7000)]
+    training = Data.query.limit(60000).all()
+    
+    #scores1 = hill_climb(rebalance_strategy1,training,testing)
+    scores2,count,constants = hill_climb(rebalance_strategy2,training,testing)
+    #scores1.sort()
+    scores2.sort()
+    #print "strategy 1",sum(scores1)/float(len(scores1))
+    print "strategy 2",sum(scores2)/float(len(scores2))
+    print count/float(60000)
+    print constants

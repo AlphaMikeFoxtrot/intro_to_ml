@@ -1,0 +1,4 @@
+from datastore.models import Data
+
+test = Data.query.limit(1000).all()
+training = Data.query.limit(3000).all()

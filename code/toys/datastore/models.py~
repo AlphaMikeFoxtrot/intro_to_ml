@@ -1,0 +1,45 @@
+from datastore import db
+
+class Data(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    param1 = db.Column(db.Integer)
+    param2 = db.Column(db.Integer)
+    result = db.Column(db.Integer)
+
+    def __init__(self,param1,param2,result):
+        self.param1 = param1
+        self.param2 = param2
+        self.result = result
+    def __repr__(self):
+        return "<data %r>" % self.id
+
+class Data2(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    param1 = db.Column(db.Integer)
+    param2 = db.Column(db.Integer)
+    param3 = db.Column(db.Integer)
+    param4 = db.Column(db.Integer)
+    param5 = db.Column(db.Integer)
+    param6 = db.Column(db.Integer)
+    param7 = db.Column(db.Integer)
+    param8 = db.Column(db.Integer)
+    param9 = db.Column(db.Integer)
+    param10 = db.Column(db.Integer)
+    param11 = db.Column(db.Integer)
+    param12 = db.Column(db.Integer)
+
+    def __init__(self,param1,param2,param3,param4,param5,param6,param7,param8,param9,param10,param11,param12):
+        self.param1 = param1
+        self.param2 = param2
+        self.param3 = param3
+        self.param4 = param4
+        self.param5 = param5
+        self.param6 = param6
+        self.param7 = param7
+        self.param8 = param8
+        self.param9 = param9
+        self.param10 = param10
+        self.param11 = param11
+        self.param12 = param12
+    def __repr__(self):
+        return "<data %r>" % self.id

@@ -1,0 +1,5 @@
+from datastore.models import *
+
+def objective_function(constants,parameters):
+    return sum([c*p for c,p in constants,parameters])
+

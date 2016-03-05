@@ -124,7 +124,7 @@ def tune(depths,breathes,alphas=[0.1]):
 def get_hidden_layer_index(nn):
     indexes = []
     for index,syn in enumerate(nn):
-        if syn["name"].isdigit():
+        if type(syn["name"]) == type(int()):
             indexes.append(index)
     return indexes
 
@@ -188,17 +188,45 @@ def sort_by_key(listing,sort_by):
     new_ordering = [translate[key] for key in keys]
     return [listing[i] for i in new_ordering]
 
+def tune_with_dropout(depth,breathe,alpha):
+    rates = [0.01,0.1,0.15,0.25,0.45,0.5,0.75,0.85,0.95]
+    for rate in rates: 
+        np.random.seed(1)
+        X = np.array([[0,0,1],
+                      [0,1,1],
+                      [1,0,1],
+                      [1,1,1]])
+                
+        y = np.array([[0],
+	              [1],
+	              [1],
+                      [0]])
+        
+        tmp = {"depth":depth,"breathe":breathe,"alpha":alpha}
+        #print "With alpha=",alpha
+        tmp["errors"] = train_network(X,y,depth,breathe,alpha=alpha,num_iterations=70000,dropout=True,dropout_percent=rate)
+        tmp["min_error"] = min(tmp["errors"])
+        tmp["ave_error"] = sum(tmp["errors"])/float(len(tmp["errors"]))
+        print "The network had the following attributes"
+        print "Depth",tmp["depth"]
+        print "Breathe",tmp["breathe"]
+        print "Alpha",tmp["alpha"]
+        print "The minimum error for this network was",tmp["min_error"]
+        print "The average error for this network was",tmp["ave_error"]
+    
 
 if __name__ == '__main__':
-    depth_breathes = tune([0,5],[4,7],alphas=[0.001,0.1,1,5,10,15,20,25,30,35,40])
-    depth_breathes = sort_by_key(depth_breathes,"min_error")
-    for elem in depth_breathes[:1]:
-        print "The network had the following attributes"
-        print "Depth",elem["depth"]
-        print "Breathe",elem["breathe"]
-        print "Alpha",elem["alpha"]
-        print "The minimum error for this network was",elem["min_error"]
-        print "The average error for this network was",elem["ave_error"]
+    tune_with_dropout(2,5,40)
+    #depth_breathes = tune([0,5],[4,7],alphas=[0.001,0.1,1,5,10,15,20,25,30,35,40])
+    #depth_breathes = sort_by_key(depth_breathes,"min_error")
+      
+    # for elem in depth_breathes[:1]:
+    #     print "The network had the following attributes"
+    #     print "Depth",elem["depth"]
+    #     print "Breathe",elem["breathe"]
+    #     print "Alpha",elem["alpha"]
+    #     print "The minimum error for this network was",elem["min_error"]
+    #     print "The average error for this network was",elem["ave_error"]
         
     # for i in xrange(0,7):
     #     errors = run_once(i)

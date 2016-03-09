@@ -10,6 +10,9 @@ def sigmoid(x):
 def sigmoid_prime(output):
     return output*(1-output)
 
+def create_connection(num_rows,num_cols):
+    return 2*np.random.random((num_rows,num_cols)) -1
+
 
 # training dataset generation
 int2binary = {}
@@ -30,9 +33,9 @@ output_dim = 1
 
 
 # initialize neural network weights
-synapse_0 = 2*np.random.random((input_dim,hidden_dim)) - 1
-synapse_1 = 2*np.random.random((hidden_dim,output_dim)) - 1
-synapse_h = 2*np.random.random((hidden_dim,hidden_dim)) - 1
+synapse_0 = create_connection(input_dim,hidden_dim)
+synapse_1 = create_connection(hidden_dim,output_dim)
+synapse_h = create_connection(hidden_dim,hidden_dim)
 
 synapse_0_update = np.zeros_like(synapse_0)
 synapse_1_update = np.zeros_like(synapse_1)

@@ -1,5 +1,4 @@
 import copy, numpy as np
-np.random.seed(0)
 
 # compute sigmoid nonlinearity
 def sigmoid(x):
@@ -13,18 +12,20 @@ def sigmoid_prime(output):
 def create_connection(num_rows,num_cols):
     return 2*np.random.random((num_rows,num_cols)) -1
 
+def integer2binary(binary_dim=8):
+    # training dataset generation
+    int2binary = {}
 
-# training dataset generation
-int2binary = {}
+    largest_number = pow(2,binary_dim)
+    binary = np.unpackbits(
+        np.array([range(largest_number)],dtype=np.uint8).T,axis=1)
+    for i in range(largest_number):
+        int2binary[i] = binary[i]
+    return int2binary,largest_number
+
+np.random.seed(0)
 binary_dim = 8
-
-largest_number = pow(2,binary_dim)
-binary = np.unpackbits(
-    np.array([range(largest_number)],dtype=np.uint8).T,axis=1)
-for i in range(largest_number):
-    int2binary[i] = binary[i]
-
-
+int2binary,largest_number = integer2binary(binary_dim=binary_dim)
 # input variables
 alpha = 0.1
 input_dim = 2

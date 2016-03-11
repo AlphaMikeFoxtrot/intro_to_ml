@@ -42,7 +42,7 @@ def create_training_data(operator,size,largest_number,int2binary):
         # where we'll store our best guess (binary encoded)
         tmp["d"] = np.zeros_like(tmp["c"])
         training_data.append(tmp)
-    return tmp
+    return training_data
     
 np.random.seed(0)
 binary_dim = 8
@@ -63,8 +63,9 @@ synapse_0_update = np.zeros_like(synapse_0)
 synapse_1_update = np.zeros_like(synapse_1)
 synapse_h_update = np.zeros_like(synapse_h)
 
+training_data = create_training_data(lambda x,y: x+y,size,largest_number,int2binary)
 
-for i in xrange(size):
+for j,datum in enumerate(training_data):
     overallError = 0
     
     layer_2_deltas = list()
@@ -75,8 +76,8 @@ for i in xrange(size):
     for position in range(binary_dim):
         
         # generate input and output
-        X = np.array([[a[binary_dim - position - 1],b[binary_dim - position - 1]]])
-        y = np.array([[c[binary_dim - position - 1]]]).T
+        X = np.array([[datum["a"][binary_dim - position - 1],datum["b"][binary_dim - position - 1]]])
+        y = np.array([[datum["c"][binary_dim - position - 1]]]).T
 
         # hidden layer (input ~+ prev_hidden)
         layer_1 = sigmoid(np.dot(X,synapse_0) + np.dot(layer_1_values[-1],synapse_h))
@@ -90,7 +91,7 @@ for i in xrange(size):
         overallError += np.abs(layer_2_error[0])
     
         # decode estimate so we can print it out
-        d[binary_dim - position - 1] = np.round(layer_2[0][0])
+        datum["d"][binary_dim - position - 1] = np.round(layer_2[0][0])
         
         # store hidden layer so we can use it in the next timestep
         layer_1_values.append(copy.deepcopy(layer_1))
@@ -99,7 +100,7 @@ for i in xrange(size):
     
     for position in range(binary_dim):
         
-        X = np.array([[a[position],b[position]]])
+        X = np.array([[datum["a"][position],datum["b"][position]]])
         layer_1 = layer_1_values[-position-1]
         prev_layer_1 = layer_1_values[-position-2]
         
@@ -127,12 +128,12 @@ for i in xrange(size):
     # print out progress
     if(j % 1000 == 0):
         print "Error:" + str(overallError)
-        print "Pred:" + str(d)
-        print "True:" + str(c)
+        print "Pred:" + str(datum["d"])
+        print "True:" + str(datum["c"])
         out = 0
-        for index,x in enumerate(reversed(d)):
+        for index,x in enumerate(reversed(datum["d"])):
             out += x*pow(2,index)
-        print str(a_int) + " + " + str(b_int) + " = " + str(out)
+        print str(datum["a_int"]) + " + " + str(datum["b_int"]) + " = " + str(out)
         print "------------"
 
         

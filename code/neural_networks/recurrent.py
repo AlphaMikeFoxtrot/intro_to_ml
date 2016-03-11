@@ -62,6 +62,13 @@ def create_synapses(input_data,output_data,input_dim,hidden_dim,output_dim,num_h
     nn.append({"name":"output data","connection":output_data})
     return nn
 
+def create_matrices(training_data):
+    x_s = []
+    y_s = []
+    for elem in training_data:
+        x_s.append(np.array([[datum["a"][binary_dim - position - 1],datum["b"][binary_dim - position - 1]]]))
+        y_s.append( np.array([[datum["c"][binary_dim - position - 1]]]).T)
+    return x_s,y_s
 
 np.random.seed(0)
 binary_dim = 8
@@ -84,7 +91,8 @@ synapse_1_update = np.zeros_like(synapse_1)
 synapse_h_update = np.zeros_like(synapse_h)
 
 training_data = create_training_data(lambda x,y: x+y,size,largest_number,int2binary)
-
+input_matrices,output_matrices = create_matrices(training_data)
+                
 for j,datum in enumerate(training_data):
     overallError = 0
     
@@ -96,8 +104,6 @@ for j,datum in enumerate(training_data):
     for position in range(binary_dim):
         
         # generate input and output
-        X = np.array([[datum["a"][binary_dim - position - 1],datum["b"][binary_dim - position - 1]]])
-        y = np.array([[datum["c"][binary_dim - position - 1]]]).T
         
         
         # hidden layer (input ~+ prev_hidden)

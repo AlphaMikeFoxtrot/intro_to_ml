@@ -32,7 +32,6 @@ input_dim = 2
 hidden_dim = 16
 output_dim = 1
 
-
 # initialize neural network weights
 synapse_0 = create_connection(input_dim,hidden_dim)
 synapse_1 = create_connection(hidden_dim,output_dim)
@@ -43,7 +42,7 @@ synapse_1_update = np.zeros_like(synapse_1)
 synapse_h_update = np.zeros_like(synapse_h)
 
 # training logic
-for j in range(10000):
+for j in range(30000):
     
     # generate a simple addition problem (a + b = c)
     a_int = np.random.randint(largest_number/2) # int version

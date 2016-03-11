@@ -74,6 +74,7 @@ output_dim = 1
 size = 30000
 
 # initialize neural network weights
+create_synapses(input_dim
 synapse_0 = create_connection(input_dim,hidden_dim)
 synapse_1 = create_connection(hidden_dim,output_dim)
 synapse_h = create_connection(hidden_dim,hidden_dim)

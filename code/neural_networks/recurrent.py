@@ -23,9 +23,26 @@ def integer2binary(binary_dim=8):
         int2binary[i] = binary[i]
     return int2binary,largest_number
 
+def create_training_data(operator,size,largest_number,int2binary):
+    # training logic
+    training_data = []
+    for j in range(size):
+        tmp = {}
+        # generate a simple addition problem (a + b = c)
+        tmp["a_int"] = np.random.randint(largest_number/2) # int version
+        tmp["a"] = int2binary[tmp["a_int"]] # binary encoding
 
-def create_training_data(operator,size):
-    
+        tmp["b_int"] = np.random.randint(largest_number/2) # int version
+        tmp["b"] = int2binary[tmp["b_int"]] # binary encoding
+
+        # true answer
+        tmp["c_int"] = operator(tmp["a_int"], tmp["b_int"])
+        tmp["c"] = int2binary[tmp["c_int"]]
+
+        # where we'll store our best guess (binary encoded)
+        tmp["d"] = np.zeros_like(tmp["c"])
+        training_data.append(tmp)
+    return tmp
     
 np.random.seed(0)
 binary_dim = 8
@@ -35,6 +52,7 @@ alpha = 0.1
 input_dim = 2
 hidden_dim = 16
 output_dim = 1
+size = 30000
 
 # initialize neural network weights
 synapse_0 = create_connection(input_dim,hidden_dim)
@@ -45,23 +63,8 @@ synapse_0_update = np.zeros_like(synapse_0)
 synapse_1_update = np.zeros_like(synapse_1)
 synapse_h_update = np.zeros_like(synapse_h)
 
-# training logic
-for j in range(30000):
-    
-    # generate a simple addition problem (a + b = c)
-    a_int = np.random.randint(largest_number/2) # int version
-    a = int2binary[a_int] # binary encoding
 
-    b_int = np.random.randint(largest_number/2) # int version
-    b = int2binary[b_int] # binary encoding
-
-    # true answer
-    c_int = a_int + b_int
-    c = int2binary[c_int]
-    
-    # where we'll store our best guess (binary encoded)
-    d = np.zeros_like(c)
-
+for i in xrange(size):
     overallError = 0
     
     layer_2_deltas = list()

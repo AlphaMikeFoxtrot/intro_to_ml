@@ -23,6 +23,10 @@ def integer2binary(binary_dim=8):
         int2binary[i] = binary[i]
     return int2binary,largest_number
 
+
+def create_training_data(operator,size):
+    
+    
 np.random.seed(0)
 binary_dim = 8
 int2binary,largest_number = integer2binary(binary_dim=binary_dim)

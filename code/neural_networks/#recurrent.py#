@@ -95,7 +95,8 @@ def forward_prop(training_data,binary_dim):
         
         # store hidden layer so we can use it in the next timestep
         layer_1_values.append(copy.deepcopy(layer_1))
-
+    return layer_1,layer_2,layer_2_e
+        
 np.random.seed(0)
 binary_dim = 8
 int2binary,largest_number = integer2binary(binary_dim=binary_dim)

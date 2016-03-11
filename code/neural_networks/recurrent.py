@@ -93,9 +93,10 @@ synapse_h_update = np.zeros_like(synapse_h)
 training_data = create_training_data(lambda x,y: x+y,size,largest_number,int2binary)
 input_matrices,output_matrices = create_matrices(training_data)
                 
-for j,datum in enumerate(training_data):
+for index,input_matrix in enumerate(input_matrices):
     overallError = 0
-    
+    X = input_matrix
+    y = output_matrices[index]
     layer_2_deltas = list()
     layer_1_values = list()
     layer_1_values.append(np.zeros(hidden_dim))
@@ -104,7 +105,6 @@ for j,datum in enumerate(training_data):
     for position in range(binary_dim):
         
         # generate input and output
-        
         
         # hidden layer (input ~+ prev_hidden)
         layer_1 = sigmoid(np.dot(X,synapse_0) + np.dot(layer_1_values[-1],synapse_h))
@@ -118,7 +118,7 @@ for j,datum in enumerate(training_data):
         overallError += np.abs(layer_2_error[0])
     
         # decode estimate so we can print it out
-        datum["d"][binary_dim - position - 1] = np.round(layer_2[0][0])
+        training_data[index]["d"][binary_dim - position - 1] = np.round(layer_2[0][0])
         
         # store hidden layer so we can use it in the next timestep
         layer_1_values.append(copy.deepcopy(layer_1))
@@ -127,7 +127,7 @@ for j,datum in enumerate(training_data):
     
     for position in range(binary_dim):
         
-        X = np.array([[datum["a"][position],datum["b"][position]]])
+        X = np.array([[training_data[index]["a"][position],training_data[index]["b"][position]]])
         layer_1 = layer_1_values[-position-1]
         prev_layer_1 = layer_1_values[-position-2]
         
@@ -153,14 +153,14 @@ for j,datum in enumerate(training_data):
     synapse_h_update *= 0
     
     # print out progress
-    if(j % 1000 == 0):
+    if(index % 1000 == 0):
         print "Error:" + str(overallError)
-        print "Pred:" + str(datum["d"])
-        print "True:" + str(datum["c"])
+        print "Pred:" + str(training_data[index]["d"])
+        print "True:" + str(training_data[index]["c"])
         out = 0
-        for index,x in enumerate(reversed(datum["d"])):
+        for index,x in enumerate(reversed(training_data[index]["d"])):
             out += x*pow(2,index)
-        print str(datum["a_int"]) + " + " + str(datum["b_int"]) + " = " + str(out)
+        print str(training_data[index]["a_int"]) + " + " + str(training_data[index]["b_int"]) + " = " + str(out)
         print "------------"
 
         

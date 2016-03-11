@@ -44,20 +44,20 @@ def create_training_data(operator,size,largest_number,int2binary):
         training_data.append(tmp)
     return training_data
 
-def create_synapses(input_data,output_data,num_hidden_layers):
+def create_synapses(input_data,output_data,input_dim,hidden_dim,output_dim,num_hidden_layers):
     nn = [{"name":"input data","connection":input_data}]
     #input layer
     input_syn = {"name":"input layer"}
-    input_syn["connection"] = create_connection(len(input_data[0]),len(input_data))
+    input_syn["connection"] = create_connection(input_dim,hidden_dim)
     nn.append(input_syn)
     #hidden layers
     for i in xrange(num_hidden_layers):
         syn = {"name":i}
-        syn["connection"] = create_connection(len(input_data),len(input_data))
+        syn["connection"] = create_connection(hidden_dim,hidden_dim)
         nn.append(syn)
     #output_layer
     syn = {"name":"output layer"}
-    syn["connection"] = create_connection(len(output_data),len(output_data[0]))
+    syn["connection"] = create_connection(hidden_dim,output_dim)
     nn.append(syn)
     nn.append({"name":"output data","connection":output_data})
     return nn
@@ -98,7 +98,8 @@ for j,datum in enumerate(training_data):
         # generate input and output
         X = np.array([[datum["a"][binary_dim - position - 1],datum["b"][binary_dim - position - 1]]])
         y = np.array([[datum["c"][binary_dim - position - 1]]]).T
-
+        
+        
         # hidden layer (input ~+ prev_hidden)
         layer_1 = sigmoid(np.dot(X,synapse_0) + np.dot(layer_1_values[-1],synapse_h))
 

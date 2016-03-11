@@ -72,13 +72,11 @@ def create_matrices(training_data,binary_dim):
     return x_s,y_s
 
 
-def forward_prop(training_data,binary_dim):
-    X = []
-    y = []
-    for datum in training_data:
-        for position in range(binary_dim):
+def forward_prop(datum,binary_dim):
+    for position in range(binary_dim):
         # generate input and output
-        
+        X = np.array([[datum["a"][binary_dim - position - 1],datum["b"][binary_dim - position - 1]]])
+        y = np.array([[datum["c"][binary_dim - position - 1]]]).T
         # hidden layer (input ~+ prev_hidden)
         layer_1 = sigmoid(np.dot(X,synapse_0) + np.dot(layer_1_values[-1],synapse_h))
 
@@ -95,7 +93,8 @@ def forward_prop(training_data,binary_dim):
         
         # store hidden layer so we can use it in the next timestep
         layer_1_values.append(copy.deepcopy(layer_1))
-
+    return X,y,layer_1,layer_1_values, layer_2,layer_2_error,layer_2_deltas, overallError
+        
 np.random.seed(0)
 binary_dim = 8
 int2binary,largest_number = integer2binary(binary_dim=binary_dim)

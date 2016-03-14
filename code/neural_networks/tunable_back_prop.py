@@ -1,5 +1,6 @@
 import numpy as np
 import copy
+from tools import *
 
 def nonlin(x,deriv=False):
     if(deriv==True):
@@ -26,12 +27,6 @@ def create_nn(input_data,output_data,depth_hidden_layers,breathe_hidden_layers):
     nn.append(syn)
     nn.append({"name":"output data","connection":output_data})
     return nn
-
-def check_index(cur_index,size):
-    if size - abs(cur_index) > 0:
-        return "keep going"
-    else:
-        return "stop"
 
 def forward_propagate(synapses):
     layers = [synapses[0]["connection"]]
@@ -65,36 +60,7 @@ def back_propagate(layers,synapses,alpha=0.1):
         layers_index -= 1
         deltas_index += 1
     return synapses,errors[0]
-
-def rate_of_change(a,b):
-    try:
-        return float(b-a)/2
-    except:
-        return 0 
-        
-def rates_of_change(listing):
-    listing2 = listing[1:]
-    return map(rate_of_change,listing,listing2)[:-1]
-
-def check_sign(num):
-    if num >= 0:
-        return "positive"
-    else:
-        return "negative"
-    
-def find_inflection_points(listing):
-    rates = rates_of_change(listing)
-    inflection_points = []
-    num_inflection_points = 0
-    sign = check_sign(rates[0]) 
-    for index,rate in enumerate(rates):
-        new_sign = check_sign(rate)
-        if new_sign != sign:
-            inflection_points.append(rate)
-            num_inflection_points += 1
-            sign = new_sign
-    return inflection_points,num_inflection_points
-            
+                        
 def tune(depths,breathes,alphas=[0.1]):
     np.random.seed(1)
     X = np.array([[0,0,1],
@@ -151,20 +117,6 @@ def run_once(num_hidden_nodes):
         errors.append(np.mean(np.abs(error)))
     return errors
 
-def sort_by_key(listing,sort_by):
-    """
-    Expects a list of dictionaries 
-    Returns a list of dictionaries sorted by the associated key
-    """
-    keys = []
-    translate = {}
-    for ind,elem in enumerate(listing):
-        key = elem[sort_by]
-        translate[key] = ind
-        keys.append(key)
-    keys.sort()
-    new_ordering = [translate[key] for key in keys]
-    return [listing[i] for i in new_ordering]
 
 
 if __name__ == '__main__':

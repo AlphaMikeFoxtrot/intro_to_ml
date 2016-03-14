@@ -72,28 +72,10 @@ def create_matrices(training_data,binary_dim):
     return x_s,y_s
 
 
-def forward_prop(datum,binary_dim):
-    for position in range(binary_dim):
-        # generate input and output
-        X = np.array([[datum["a"][binary_dim - position - 1],datum["b"][binary_dim - position - 1]]])
-        y = np.array([[datum["c"][binary_dim - position - 1]]]).T
-        # hidden layer (input ~+ prev_hidden)
-        layer_1 = sigmoid(np.dot(X,synapse_0) + np.dot(layer_1_values[-1],synapse_h))
-
-        # output layer (new binary representation)
-        layer_2 = sigmoid(np.dot(layer_1,synapse_1))
-
-        # did we miss?... if so, by how much?
-        layer_2_error = y - layer_2
-        layer_2_deltas.append((layer_2_error)*sigmoid_prime(layer_2))
-        overallError += np.abs(layer_2_error[0])
+#def forward_prop(datum,binary_dim):
+#    for position in range(binary_dim):
     
-        # decode estimate so we can print it out
-        training_data[index]["d"][binary_dim - position - 1] = np.round(layer_2[0][0])
-        
-        # store hidden layer so we can use it in the next timestep
-        layer_1_values.append(copy.deepcopy(layer_1))
-    return X,y,layer_1,layer_1_values, layer_2,layer_2_error,layer_2_deltas, overallError
+#    return X,y,layer_1,layer_1_values, layer_2,layer_2_error,layer_2_deltas, overallError
         
 np.random.seed(0)
 binary_dim = 8
@@ -128,8 +110,25 @@ for index,input_matrix in enumerate(input_matrices):
     
     # moving along the positions in the binary encoding
     for position in range(binary_dim):
-        
+        # generate input and output
+        #X = np.array([[datum["a"][binary_dim - position - 1],datum["b"][binary_dim - position - 1]]])
+        #y = np.array([[datum["c"][binary_dim - position - 1]]]).T
+        # hidden layer (input ~+ prev_hidden)
+        layer_1 = sigmoid(np.dot(X,synapse_0) + np.dot(layer_1_values[-1],synapse_h))
+
+        # output layer (new binary representation)
+        layer_2 = sigmoid(np.dot(layer_1,synapse_1))
+
+        # did we miss?... if so, by how much?
+        layer_2_error = y - layer_2
+        layer_2_deltas.append((layer_2_error)*sigmoid_prime(layer_2))
+        overallError += np.abs(layer_2_error[0])
     
+        # decode estimate so we can print it out
+        training_data[index]["d"][binary_dim - position - 1] = np.round(layer_2[0][0])
+        
+        # store hidden layer so we can use it in the next timestep
+        layer_1_values.append(copy.deepcopy(layer_1))
     future_layer_1_delta = np.zeros(hidden_dim)
     
     for position in range(binary_dim):

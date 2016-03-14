@@ -1,6 +1,5 @@
 import numpy as np
 import copy
-from tools import *
 
 def nonlin(x,deriv=False):
     if(deriv==True):
@@ -27,6 +26,12 @@ def create_nn(input_data,output_data,depth_hidden_layers,breathe_hidden_layers):
     nn.append(syn)
     nn.append({"name":"output data","connection":output_data})
     return nn
+
+def check_index(cur_index,size):
+    if size - abs(cur_index) > 0:
+        return "keep going"
+    else:
+        return "stop"
 
 def forward_propagate(synapses):
     layers = [synapses[0]["connection"]]
@@ -60,6 +65,7 @@ def back_propagate(layers,synapses,alpha=0.1):
         layers_index -= 1
         deltas_index += 1
     return synapses,errors[0]
+
             
 def tune(depths,breathes,alphas=[0.1]):
     np.random.seed(1)
@@ -87,6 +93,7 @@ def tune(depths,breathes,alphas=[0.1]):
             if depth ==0: break #this way we don't iterate through everything when breathe doesn't change
     return depth_breathes
 
+
 def compute_dropout(layer,X,hidden_dim,dropout_percent):
     return layer * np.random.binomial([np.ones((len(X),hidden_dim)) ],1-dropout_percent)[0] * (1.0 /(1 - dropout_percent))
 
@@ -112,25 +119,20 @@ def train_network(X,y,depth,breathe,alpha=0.1,num_iterations=70000,dropout=False
             errors.append(np.mean(np.abs(error)))
     return errors
 
-def run_once(num_hidden_nodes):
-    np.random.seed(1)
-    X = np.array([[1,1],
-                  [1,0],
-                  [0,1],
-                  [0,0]])
-                
-    y = np.array([[0],
-	          [1],
-	          [1],
-                  [1]])
-    errors = []
-    nn = create_nn(X,y,num_hidden_nodes)
-    for j in xrange(70000):
-        layers = forward_propagate(nn)
-        nn,error = back_propagate(layers,nn)
-        #if j%100 == 0:
-        errors.append(np.mean(np.abs(error)))
-    return errors
+def sort_by_key(listing,sort_by):
+    """
+    Expects a list of dictionaries 
+    Returns a list of dictionaries sorted by the associated key
+    """
+    keys = []
+    translate = {}
+    for ind,elem in enumerate(listing):
+        key = elem[sort_by]
+        translate[key] = ind
+        keys.append(key)
+    keys.sort()
+    new_ordering = [translate[key] for key in keys]
+    return [listing[i] for i in new_ordering]
 
 def tune_with_dropout(depth,breathe,alpha):
     rates = [0.01,0.1,0.15,0.25,0.45,0.5,0.75,0.85,0.95]

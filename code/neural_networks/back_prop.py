@@ -1,3 +1,32 @@
+"""
+This is a vanilla neural network, written from scratch by me.  I adapted this from a series of blog posts on neural networks:
+
+http://iamtrask.github.io/2015/07/12/basic-python-network/
+
+You'll notice that this network is a generalization of the one found in the above blog post
+
+How to use:
+
+Example:
+
+num_hidden_nodes = 5
+X = np.array([[1,1],
+              [1,0],
+              [0,1],
+              [0,0]])
+                
+y = np.array([[0],[1],[1],[1]])
+run_once(num_hidden_nodes,X,y)
+
+The above example creates a neural network with 5 hidden nodes, X is the indepent variables, where is y the dependent variables.
+Note these are matrices - meaning I'm assuming a multi-dimensional array
+If you run this example from the command line:
+
+python back_prop.py 
+
+it will run the the run once method.
+"""
+
 import numpy as np
 import copy
 from tools import *
@@ -61,31 +90,21 @@ def back_propagate(layers,synapses):
         layers_index -= 1
         deltas_index += 1
     return synapses,errors[0]
-
             
-def tune(upper_bound):
-    np.random.seed(1)
-    X = np.array([[0,0,1],
-                  [0,1,1],
-                  [1,0,1],
-                  [1,1,1]])
-                
-    y = np.array([[0],
-	          [1],
-	          [1],
-                  [0]])
-     
-    for i in xrange(upper_bound):
-        print "With",i,"hidden layers"
-        nn = create_nn(X,y,i)
-        for j in xrange(20000):
-            layers = forward_propagate(nn)
-            nn,error = back_propagate(layers,nn)
-            if j %10000 == 0:   
-                print "Error",np.mean(np.abs(error))
 
-def run_once(num_hidden_nodes):
+def run_once(num_hidden_nodes,X,y):
     np.random.seed(1)
+    errors = []
+    nn = create_nn(X,y,num_hidden_nodes)
+    for j in xrange(70000):
+        layers = forward_propagate(nn)
+        nn,error = back_propagate(layers,nn)
+        if j%10000 == 0:
+            errors.append(np.mean(np.abs(error)))
+    return errors
+        
+if __name__ == '__main__':
+    #tune(11)
     X = np.array([[1,1],
                   [1,0],
                   [0,1],
@@ -95,19 +114,8 @@ def run_once(num_hidden_nodes):
 	          [1],
 	          [1],
                   [1]])
-    errors = []
-    nn = create_nn(X,y,num_hidden_nodes)
-    for j in xrange(70000):
-        layers = forward_propagate(nn)
-        nn,error = back_propagate(layers,nn)
-        #if j%100 == 0:
-        errors.append(np.mean(np.abs(error)))
-    return errors
-        
-if __name__ == '__main__':
-    #tune(11)
     for i in xrange(0,7):
-        errors = run_once(i)
+        errors = run_once(i,X,y)
         print "The minimum error for the this network was",min(errors)
         print "The average error for the this network was",sum(errors)/float(len(errors))
         inflection_points,num_inflection_points = find_inflection_points(errors)

@@ -160,7 +160,6 @@ def tune_with_dropout(depth,breathe,alpha):
         print "The minimum error for this network was",tmp["min_error"]
         print "The average error for this network was",tmp["ave_error"]
     
-
 if __name__ == '__main__':
     tune_with_dropout(2,5,40)
     #depth_breathes = tune([0,5],[4,7],alphas=[0.001,0.1,1,5,10,15,20,25,30,35,40])

@@ -18,23 +18,24 @@ The derivative (from calculus) is measuring the instantaneous rate of change at 
 
 An example of the derivative is the power rule on x^n:
 
-f = x^2
-f' = 2*x^1
+`f = x^2`
+`f' = 2*x^1`
 
 In general:
 
-f = x^n
-f' = n*x^(n-1)
+`f = x^n`
+`f' = n*x^(n-1)`
 
 ##Explanation of matrices
 
 A matrix is a representation of a mathematical equation where each column is a variable and each row is an equation.  And the row and column combination is a coefficient on that variable. 
 
-So, 5x + 6y and 7x + 4y becomes:
+So, `5x + 6y` and `7x + 4y` becomes:
 
+```
 [[5 6],
  [7 4]]
-
+```
 
 ##Explanation of the dot product
 
@@ -42,17 +43,17 @@ The dot product is when you take two rows of a matrix and create a single scalar
 
 So `np.dot([5 6],[7 4])` is really doing:
 
-5*7 + 6*4 = 35 + 24 = 59
+`5*7 + 6*4 = 35 + 24 = 59`
 
 It's important to note that there is a geometric interpretation of the dot product which will be helpful for later!
 
 The dot product: A . B (read A dot B) is the combination of two vectors (since vectors have magnitude and position)
 
-and it's equal to magnitude of A * magnitiude of B * cosine of theta, read:
+and it's equal to magnitude of `A * magnitiude` of `B * cosine` of theta, read:
 
-A . B = ||A|| ||B|| * cos(theta)
+`A . B = ||A|| ||B|| * cos(theta)`
 
-So the dot product gives us information about our vectors (aka arrays).  Specifically if A . B = 0 then our vectors are orthogonal!  That means directionally they are 90 degrees (or a right angle) away from each other.  
+So the dot product gives us information about our vectors (aka arrays).  Specifically if `A . B = 0` then our vectors are orthogonal!  That means directionally they are 90 degrees (or a right angle) away from each other.  
 
 Knowing the direction of two things is going to be very helpful for us (which is what the dot product tells us).  It tells us if they are moving closer together or if they are moving further apart!
 
@@ -60,18 +61,22 @@ Knowing the direction of two things is going to be very helpful for us (which is
 
 Matrix multiplication is the same thing as the dot product, except you do it over each row of the first matrix and each column of the second.  This gives you a new matrix.  Let's look at some examples:
 
+```
 A = [[1 2]
 	 [3 4]]
 B = [[1 0]
      [0 1]]
+```
 
-Then A * B is
+Then `A * B` is
 
-[1*1 + 0*3 0*1 + 2*1]
-[3*1 + 0*4 3*0 + 4*1]
+`[1*1 + 0*3 0*1 + 2*1]`
+`[3*1 + 0*4 3*0 + 4*1]`
 
-Which is [[1 2]
-          [3 4]]
+Which is 
+
+```[[1 2]
+    [3 4]]```
 
 Wait a second! Doesn't this mean that we just ended up where we started!?  That's because B in this case is the identity matrix.  It's the matrix version of the number 1.  In general we can think of B as the transformation matrix, which applies transformations to the matrix A to translate it magnitudinally and directionally in space.  
 
@@ -590,7 +595,34 @@ So I leave it as an exercise to generalize out this code, like we did with the p
 
 A neural stack - teaching a neural network when to push and pop from a stack:
 
+https://github.com/EricSchles/intro_to_ml/blob/master/code/neural_networks/neural_stack.py
 
+Flappy bird:
 
+Mac OSX:
+
+Python3 - It's hard to install pygame on python2 (lame I know)
+tensorflow: https://www.tensorflow.org/versions/r0.7/get_started/os_setup.html#pip-installation
+opencv: https://jjyap.wordpress.com/2014/05/24/installing-opencv-2-4-9-on-mac-osx-with-python-support/ - Python2
+opencv: http://stackoverflow.com/questions/33222965/installing-opencv-3-for-python-3-on-a-mac-using-homebrew-and-pyenv - Python3
+pygame: http://pygame.org/wiki/macintosh
+
+https://porter.io/github.com/yenchenlin1994/DeepLearningFlappyBird
+
+Somehow this breaks numpy but then you can just install it again from pip and then everything is fine for some reason?
+
+Neural artwork:
+
+https://github.com/EricSchles/image-analogies
+
+you'll need pillow (not necssarily installed)
+
+do:
+
+`python3 image_analogy.py --vgg-weights vgg16_weights.h5 images/arch-mask.jpg images/arch.jpg images/arch-newmask.jpg out/arch`
+
+Facial Recognition:
+
+https://github.com/EricSchles/neuralnet/blob/master/facial_recognition.py
 
 

@@ -488,6 +488,8 @@ for j in range(10000):
 
 Okay, so this code isn't quiet as minimal.  But it's as minimal as it gets.  And really this isn't sooooo bad.  Let's break it down:
 
+Here he's setting things up, just like he did before.  
+
 ```
 # initialize neural network weights
 synapse_0 = 2*np.random.random((input_dim,hidden_dim)) - 1
@@ -499,7 +501,7 @@ synapse_1_update = np.zeros_like(synapse_1)
 synapse_h_update = np.zeros_like(synapse_h)
 ```
 
-Here he's setting things up, just like he did before.  
+Here he's doing forward propagation.  
 
 ```
 # moving along the positions in the binary encoding
@@ -516,30 +518,32 @@ for position in range(binary_dim):
     layer_2 = sigmoid(np.dot(layer_1,synapse_1))
 ```
 
-Here he's doing forward propagation.  
+
+
+This is the new stuff - here we are setting up the recurrence:
 
 ```
-	# did we miss?... if so, by how much?
-	layer_2_error = y - layer_2
-	layer_2_deltas.append((layer_2_error)*sigmoid_output_to_derivative(layer_2))
-	overallError += np.abs(layer_2_error[0])
+    # did we miss?... if so, by how much?
+    layer_2_error = y - layer_2
+    layer_2_deltas.append((layer_2_error)*sigmoid_output_to_derivative(layer_2))
+    overallError += np.abs(layer_2_error[0])
 
-	# decode estimate so we can print it out
-	d[binary_dim - position - 1] = np.round(layer_2[0][0])
+    # decode estimate so we can print it out
+    d[binary_dim - position - 1] = np.round(layer_2[0][0])
 
-	# store hidden layer so we can use it in the next timestep
-	layer_1_values.append(copy.deepcopy(layer_1))
+    # store hidden layer so we can use it in the next timestep
+    layer_1_values.append(copy.deepcopy(layer_1))
 
 future_layer_1_delta = np.zeros(hidden_dim)
 ```
 
-This is the new stuff - here we are setting up the recurrence, specifically when we do this:
+specifically when we do this:
 
 `layer_1_values.append(copy.deepcopy(layer_1))` AND `future_layer_1_delta = np.zeros(hidden_dim)`
 
 Notice that we have an array of `layer_1_values` where we store all the previous layer one's.  This is the saving part of recurrence.
 
-Next let's look at back propagation.  Unfortunately, as complex as back propagation was before, it's even more so.  So much so it has a new name, back propagation through time.
+Next let's look at back propagation.  Unfortunately, as complex as back propagation was before, it's even more so.  So much so it has a new name, back propagation through time:
 
 ```
 for position in range(binary_dim):
@@ -591,6 +595,19 @@ So I leave it as an exercise to generalize out this code, like we did with the p
 
 ##Convolutional Neural networks
 
+A convolution is a sliding window function applied to a matrix. Convolutional neural networks work differently than recurrent neural networks or vanilla neural networks.  Rather than learning over the entire space, convolutional neural networks work over a subset of the input data to learn local patterns.  
+
+The canonical use-case for convolutional neural networks is an image with pixels.  The pixels are taken in and pieces of the picture are learned, to find locally represented features - much like the human eye recognizes distinct features to identify what humans would refer to as physical objects, like cars, planes, beds, cats, and pizza.  
+
+Here's a great example of a simple convolutional neural network:
+
+https://github.com/andersbll/nnet/blob/master/nnet/convnet/conv.pyx
+
+We won't bother even trying to implement one our selves, but here's a strategy one could take to implement one yourself.  Take in the total size of your matrix, split it up into smaller matrices, then apply neural networks to each piece.  Then combine results to produce one score.  
+
+So like, recurrent neural networks assumed a sense of time or an ordering, convolutional neural networks assume a sense of locality.  That things around a point will be similar.  If you have the network trained on say, pictures of a cat, you can have each piece learn the features specific to that part of the cats face, and then identify them.  
+
+
 ##Neural network applications
 
 A neural stack - teaching a neural network when to push and pop from a stack:
@@ -625,4 +642,9 @@ Facial Recognition:
 
 https://github.com/EricSchles/neuralnet/blob/master/facial_recognition.py
 
+Picture annotation:
+
+http://cs.stanford.edu/people/karpathy/deepimagesent/
+
+##And Now For Something Completely Different
 

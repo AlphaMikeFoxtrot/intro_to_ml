@@ -32,6 +32,9 @@ import copy
 from tools import *
 from functools import partial
 from hackthederivative import complex_step_finite_diff as deriv
+import inspect
+import functions
+from functions import *
 
 def create_connection(num_rows,num_cols):
     return 2*np.random.random((num_rows,num_cols)) -1
@@ -53,7 +56,6 @@ def create_nn(input_data,output_data,num_hidden_layers):
     nn.append(syn)
     nn.append({"name":"output data","connection":output_data})
     return nn
-
 
 def forward_propagate(synapses,f):
     layers = [synapses[0]["connection"]]
@@ -99,23 +101,27 @@ def run_once(num_hidden_nodes,X,y,f):
         if j%10000 == 0:
             errors.append(np.mean(np.abs(error)))
     return errors
-        
+
+def get_functions():
+    dicter = globals()
+    x = [elem for elem in dir(functions) if not "__" in elem]
+    return {elem:dicter[elem] for elem in x}
+    
 if __name__ == '__main__':
+    
+    funcs = get_functions()
     #tune(11)
-    X = np.array([[1,1],
-                  [1,0],
-                  [0,1],
-                  [0,0]])
-                
-    y = np.array([[0],
-	          [1],
-	          [1],
-                  [1]])
-    f = lambda x: x*x + x + 1
-    for i in xrange(0,7):
-        errors = run_once(i,X,y,f)
-        print "The minimum error for the this network was",min(errors)
-        print "The average error for the this network was",sum(errors)/float(len(errors))
-        inflection_points,num_inflection_points = find_inflection_points(errors)
-        print "These were the inflection points for ",i
-        print "There were",num_inflection_points,"in total"
+    X = np.array([[1,1],[1,0],[0,1],[0,0]])
+    y = np.array([[0],[1],[1],[1]])
+    n = 10
+    funcs = get_functions()
+    for i in xrange(0,n):
+        for func_name in funcs.keys():
+            errors = run_once(i,X,y,funcs[func_name])
+            print funcs[func_name]
+            print "The minimum error for the this network was",min(errors)
+            print "The average error for the this network was",sum(errors)/float(len(errors))
+    #         print inspect.getsourcelines(funcs[j])[0][-1].strip()
+            #inflection_points,num_inflection_points = find_inflection_points(errors)
+            #print "These were the inflection points for ",i
+            #print "There were",num_inflection_points,"in total"

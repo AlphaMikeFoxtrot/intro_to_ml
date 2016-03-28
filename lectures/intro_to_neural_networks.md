@@ -648,3 +648,8 @@ http://cs.stanford.edu/people/karpathy/deepimagesent/
 
 ##And Now For Something Completely Different
 
+##References:
+
+http://colah.github.io/
+http://www.wildml.com/
+http://iamtrask.github.io/

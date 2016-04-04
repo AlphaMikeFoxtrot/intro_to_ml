@@ -196,6 +196,8 @@ def stochastic_tuning(depth_range,breathe_range,num_iter,alphas=[0.001,0.1,1,5,1
     return results
     
 if __name__ == '__main__':
+    results = stochastic_tuning(20,5,7)
+    for result in results: analyze_results(result)
     #tune_with_dropout(2,5,40)
     #depth_breathes = tune_alpha([0,5],[4,7],alphas=[0.001,0.1,1,5,10,15,20,25,30,35,40])
     #depth_breathes = sort_by_key(depth_breathes,"min_error")

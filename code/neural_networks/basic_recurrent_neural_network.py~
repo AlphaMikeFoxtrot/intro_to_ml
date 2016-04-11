@@ -1,0 +1,10 @@
+import numpy as np
+
+synapse_0 = 2*np.random.random((2,16)) - 1
+synapse_1 = 2*np.random.random((16,1)) - 1
+synapse_h = 2*np.random.random((16,16)) - 1
+
+synapse_0_update = np.zeroes_like(synapse_0)
+synapse_1_update = np.zeroes_like(synapse_1)
+synapse_h_update = np.zeroes_like(synapse_h)
+

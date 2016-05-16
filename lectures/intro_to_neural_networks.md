@@ -402,7 +402,7 @@ synapse_h_update = np.zeros_like(synapse_h)
 for j in range(10000):
     
     # generate a simple addition problem (a + b = c)
-    a_int = np.random.randint(largest_number/2) # int version
+    a_int = np.frandom.randint(largest_number/2) # int version
     a = int2binary[a_int] # binary encoding
 
     b_int = np.random.randint(largest_number/2) # int version

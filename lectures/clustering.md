@@ -103,7 +103,7 @@ There are lots of clustering algorithms out there - [here's a great description 
 
 This great package is the answer: https://pypi.python.org/pypi/kohonen :)
 
-So what does a self organizing map give us? (Lots)
+So what does a self organizing map give us? (Lots - [some words from someone else](http://stats.stackexchange.com/questions/140148/how-can-an-artificial-neural-network-ann-be-used-for-unsupervised-clustering)
 
 A self organizing map is a neural network that is used for clustering.  Why would that be good?  A neural network is just a fancy name for a bunch of locally linear classifiers with non-linear transforms (or projects) being applied to the data.  This non-linearity is what we are taking advantage of when we apply a neural network before applying k-means or some other clustering algorithm.  In fact, the main motivation behind Neural Networks and many ML algorithms is exactly this problem.  In general k-means has difficulty with [linear seperability](https://en.wikipedia.org/wiki/Linear_separability) - but Neural Networks do not!  And thus by first training your data on a Neurl Net, you are guaranteed to make those hard to seperate points a lot easier to work with, while being topologically preserved. 
 

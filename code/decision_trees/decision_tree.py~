@@ -1,0 +1,6 @@
+def grow_tree(x_s,y_s):
+    if all([y == 0 for y in S]): return leaf(0)
+    elif all([y == 1 for all y in S]): return leaf(1)
+    else:
+        choose_best(x)
+        

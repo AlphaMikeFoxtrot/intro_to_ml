@@ -14,7 +14,8 @@ So far we've defined, loosely what a neural network is, mathematically.  Now we 
 
 A neural network is a set of non-linear transformations, that make linearly non-seperable differences, and exagerate them.  Then predictions are made that take a mathematical object, from mathematical space A to mathematical space B.
 
-![](non_linear_projection.png)
+![](original_data.png = 100x20)
+![](non_linear_projection.png = 100x20)
 
 ##Prerequistes
 

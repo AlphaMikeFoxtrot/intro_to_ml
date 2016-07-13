@@ -1,4 +1,4 @@
-#Neural Networks
+#Understanding Neural Networks
 
 ##What is it?
 
@@ -12,12 +12,43 @@ So far we've defined, loosely what a neural network is, mathematically.  Now we 
 
 [A topological interpretation](http://colah.github.io/posts/2014-03-NN-Manifolds-Topology/) 
 
-A neural network is a set of non-linear transformations, that make linearly non-seperable differences, and exagerate them.  Then predictions are made that take a mathematical object, from mathematical space A to mathematical space B.
+A neural network is a set of non-linear transformations, that make [linearly non-seperable](https://en.wikipedia.org/wiki/Linear_separability) differences, and exagerate them.  Then predictions are made that take a mathematical object, from mathematical space A to mathematical space B.
 
 <img src="https://github.com/EricSchles/intro_to_ml/blob/master/lectures/original_data.png" height=300 width=300 />
 <img src="https://github.com/EricSchles/intro_to_ml/blob/master/lectures/arrow.png" height=50 width=100 />
 <img src="https://github.com/EricSchles/intro_to_ml/blob/master/lectures/non_linear_projection.png" height=300 width=300 />
 
+As you can see in the above picture the prediction is the classification of data points.  In the original data set drawing a straight line wouldn't be possible, because of the way the sample data was organized.  However by applying non-linear transformations in succession, the neural network is able to make a linear prediction, classifying the two lines correctly.
+
+Let's look now at the tensorflow playground to get a better sense of how this might work in practice:
+
+[tensorflow playground - spiral data](http://playground.tensorflow.org/#activation=tanh&regularization=L2&batchSize=30&dataset=spiral&regDataset=reg-plane&learningRate=0.1&regularizationRate=0.01&noise=20&networkShape=7,3&seed=0.47875&showTestData=false&discretize=false&percTrainData=80&x=true&y=true&xTimesY=false&xSquared=true&ySquared=true&cosX=false&sinX=true&cosY=false&sinY=true&collectStats=false&problem=classification&initZero=false)
+
+Using the above example we can begin to test our model.  We'll carry out the following natural experiments:
+
+1. Test the model above with regenerated data
+2. Test the model above against all the data points
+3. Test the model above with different feature transformations
+4. Test the model above with different hyper parameters:
+    * L1 v L2
+    * Tanh v Linear v ReLU v Sigmoid
+    * Classification v Regression
+    * Learn Rate
+    * Train Rate
+    * Noise level
+    * Batch Size
+
+Conclusion:
+
+Neural networks are fickle.  Unlike simpler models like linear regression or decision trees, neural networks require lots of care.  Unlike the above models, you can't just clean your data once, decide what variables you want to use, and then run your predictions.  You need to consider a whole bunch of stuff.  But if you're thoughtful enough, then a neural network can deliver superior conclusions.  Even on hard problems.  
+
+Follow up question:
+
+Of course, what if you were just thoughtful about the feature transformations you carried out?  Or the prior probabilities you brought to any given model generation?  Could you, using simple models, do just as well as the neural network?  
+
+The answer is, of course!  But machine time is less valuable than people time.  So, the idea for using anything at this level of sophistication, is about having to think less hard.  Unless there was a sizeable gain in both what these models can do (maximization), and how thoughtful you need to be (minimization), then they wouldn't be used!
+
+#Make your own Neural Network!
 
 ##Prerequistes
 

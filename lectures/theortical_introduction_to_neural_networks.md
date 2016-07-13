@@ -52,9 +52,11 @@ The answer is, of course!  But machine time is less valuable than people time.  
 
 ##Prerequistes
 
-Most people just launch into the intuition of a neural network.  They try to tell you why they chose the layout they did.  But I'm here to tell you that the intuition is wrong and lies.  They came up with it after, which will be evident when you compare "neural networks" and how they actually work to other things.  There is a strong need in computer science to run very far away from mathematics.  Well, not today.  Because trust me, it will actually make things a lot easier.
+The goal of what we are trying to do with this talk is build up the right intuition.  The intuition of interpretation that you saw above might make sense already, in which case, you're free to go, because you won't learn anything else new here.  But, if you aren't 100% you took away everything you're supposed, that's what the rest of this talk is about - building up the intuition for what we saw, by understanding the techniques that led to the discovery of neural networks.  This will be the intellectual data, that produced the above model.
 
-What we'll need is two techniques - the dot product from linear algebra and the derivative from calculus.  These two gems are all you are really doing when you apply a neural network to a bunch of data.  
+To truly understand how neural networks create the output they do, an important first step is understanding how to write your own neural network.  By analyzing and understanding the algorithms that go into this technique we can start to understand what's going on and why.
+
+What we'll need is two mathematical techniques - the dot product from linear algebra and the derivative from calculus.  These two gems are all you are really doing when you apply a neural network to a bunch of data.  And one algorithm - stochastic gradient descent.  All the other stuff we saw above isn't actually part of the neural network, those are general techniques that are used with ANY machine learning algorithm.
 
 ##Explanation of the derivative
 
@@ -130,7 +132,90 @@ This notion of transformation is going to be very, very important.
 
 ##Putting it together
 
-So we can measure whether things are going to go up in the very near future and whether things are going down in the very near future (using the derivative).  And we can change things (using transformation matrices via matrix multiplication).  Using these two techniques, I claim we can guess an initial mathematical model and then check to see how good our guess was (with the derivative).  Then we can transform our model using matrix multiplication.  And then guess again, until our model get's good enough.  Once our model is good enough, we can use it do all the fun things I mentioned at the beginning.  
+So we can measure whether things are going to go up in the very near future and whether things are going down in the very near future (using the derivative).  And we can change things (using transformation matrices via matrix multiplication).  Using these two techniques, I claim we can guess an initial mathematical model and then check to see how good our guess was (with the derivative).  Then we can transform our model using matrix multiplication.  And then guess again, until our model get's good enough.  
+
+What I've just described is a very, very high level description of gradient descent.
+
+##Neural networks, the prequel - [Newton's Method](http://www.ugrad.math.ubc.ca/coursedoc/math100/notes/approx/newton.html)
+
+One of the main ways neural networks are trained is with an algorithm called stochastic gradient descent.  It's worth noting at this point, that's certainly not the only way! 
+
+At the heart of neural networks is a technique called stochastic gradient descent.  Neural networks primarily operate over matrices and so the implementation of SGD can be challenging.  In order to draw the necessary intuition about our model let's look at another technique that makes use of SGD - [newton's method](http://www.ugrad.math.ubc.ca/coursedoc/math100/notes/approx/newton.html):
+
+[Newton's method](http://www.ugrad.math.ubc.ca/coursedoc/math100/notes/approx/newton.html) is so simple to implement we're going to look at it first and then understand why it works:
+
+```
+from hackthederivative import complex_step_finite_diff as deriv
+import random
+import sys
+
+def dx(f,x):
+    return abs(0-f(x))
+
+def newtons_method(f,x0,e,max_iterations=10000):
+    delta = dx(f,x0)
+    count = 0
+    
+    while delta > e:
+        x0 = x0 - (f(x0)/deriv(f,x0))
+        delta = dx(f,x0)
+        count += 1
+        if count > max_iterations:
+            break
+    if count < max_iterations:
+        print("Root is at: ", x0)
+        print("f(x) at root is: ", f(x0))
+        sys.exit(0)
+
+[newtons_method(lambda x: 6*x**5 - 5*x**4 - 4*x**3 + 3*x**2,random.randint(0,100),1e-5) for _ in range(1000)]
+```
+
+So what's the goal?  To find all the roots of the function.  
+
+To do this we use a really sophisticated method called "guess and check".  However, the difference between dumb guess and check and our guess and check, is we guess intelligently, over time.  Our first guess is usually pretty dumb - that's the stochastic (or random) part of the algorithm.  The rest of it is just gradient descent.
+
+So here's our algorithm in all it's gory detail:
+
+1. Look at the distance between our guess `x0`, applied to our function and the number zero - remember we are looking for the zeroes of the function, so when `f(x0) = 0` we are do.
+
+`delta = dx(f,x0)`
+
+2. We don't necessarily need our `delta` to be zero, because this is computer science after all, not math.  But we want to make sure we are sufficiently close to zero.  So:
+
+`while delta > e:`
+
+which says, while our `delta` is greater than some constant hyper parameter `e`, keep on guessing.
+
+3. We update our guess `x0` intelligently at this point:
+
+`x0 = x0 - (f(x0)/deriv(f,x0))`
+
+We look at what we are currently guessing and then we adjust it by the difference between the current value of `f(x0)` and the derivative of `f` at `x0`.  Recall that the derivative is the instantaneous rate of change at the point `x0`.  So we can think of this ratio as the size of `f(x0)` proportional to `f(x0)` varies.  
+
+So let's say that f(x0) is relatively small, but the next value, some epsilon distance greater than x0, say x0+epsilon, is significantly greater - that would mean that we'd have a large positive derivative.  And therefore we'd get a very small contribution to the term `(f(x0)/deriv(f,x0))`.  Meaning our new `x0` would be very close to our old `x0`.
+
+Applying this logic further we see the following pattern:
+
+derivative assumed to be positive:
+
+f(x0) is positive (larger than 1), deriv(f,x0) is big -> small negative contribution to change in x0
+f(x0) is positive (larger than 1), deriv(f,x0) is small (less than 1) -> large negative contribution to change in x0
+f(x0) is negative (less than -1), deriv(f,x0) is big -> small positive contribution to change in x0
+f(x0) is negative (less than -1), deriv(f,x0) is small (less than 1) -> large positive contribution to change in x0
+
+We can also flip the sign of the derivative and look at the associated results, they are equivalent to these.  So without loss of generality, we see the key insight:
+
+Newton's method heads towards solution - finding the zeroes of the function by looking at the dynamics of how the function changes for different values of our guess.  And based on these dynamics and function information, chooses a new value for our guess.  
+
+4. We update our `delta` by looking at the difference between `f(x0)` compare to the value zero:
+
+`delta = dx(f,x0)` 
+
+Again, if delta is sufficiently close to zero, we stop.
+
+After thoughts:
+
+This is more or less the process of approximation that stochastic gradient descent takes.  However, there are a number of methods for doing the process of stochastic gradient descent.  [Wikipedia's SGD page](https://en.wikipedia.org/wiki/Stochastic_gradient_descent) illustrates some of these methods.
 
 ##Our first example neural network
 

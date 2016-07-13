@@ -199,8 +199,11 @@ Applying this logic further we see the following pattern:
 derivative assumed to be positive:
 
 f(x0) is positive (larger than 1), deriv(f,x0) is big -> small negative contribution to change in x0
+
 f(x0) is positive (larger than 1), deriv(f,x0) is small (less than 1) -> large negative contribution to change in x0
+
 f(x0) is negative (less than -1), deriv(f,x0) is big -> small positive contribution to change in x0
+
 f(x0) is negative (less than -1), deriv(f,x0) is small (less than 1) -> large positive contribution to change in x0
 
 We can also flip the sign of the derivative and look at the associated results, they are equivalent to these.  So without loss of generality, we see the key insight:

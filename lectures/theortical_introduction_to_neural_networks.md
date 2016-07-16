@@ -1,5 +1,16 @@
 #Understanding Neural Networks
 
+##Motivating Examples
+
+Before we understand anything about Neural Networks, let's make sure Neural Networks are worth learning:
+
+* [SOMPY - full disclosure, I'm a contributor](https://github.com/sevamoo/SOMPY/tree/master/SOMPY)
+    * [Clustering Data](http://nbviewer.jupyter.org/gist/sevamoo/e93699fdb481de1a932b)
+    * [Low Level Representation](http://nbviewer.jupyter.org/urls/gist.githubusercontent.com/sevamoo/01753060b059941b4545/raw/1c9597257308c63fe601478f6e6d0d6d63fa80a3/somPy%20Example2)
+* [word2vec - word similarity/word algebra](https://radimrehurek.com/gensim/models/word2vec.html)
+* [facial recognition](https://cmusatyalab.github.io/openface/)
+    * [training a classifier](https://cmusatyalab.github.io/openface/demo-3-classifier/)
+
 ##What is it?
 
 A Neural Network is loosely, a set of techniques in machine learning techniques to create mathematical models.  The reason I say a set of techniques, is because I like to think of neural networks as a framework for guessing the right mathematical model.  
@@ -23,6 +34,8 @@ As you can see in the above picture the prediction is the classification of data
 Let's look now at the tensorflow playground to get a better sense of how this might work in practice:
 
 [tensorflow playground - spiral data](http://playground.tensorflow.org/#activation=tanh&regularization=L2&batchSize=30&dataset=spiral&regDataset=reg-plane&learningRate=0.1&regularizationRate=0.01&noise=20&networkShape=7,3&seed=0.47875&showTestData=false&discretize=false&percTrainData=80&x=true&y=true&xTimesY=false&xSquared=true&ySquared=true&cosX=false&sinX=true&cosY=false&sinY=true&collectStats=false&problem=classification&initZero=false)
+
+[tensorflow playground - alternative network](http://playground.tensorflow.org/#activation=relu&regularization=L2&batchSize=30&dataset=spiral&regDataset=reg-plane&learningRate=0.1&regularizationRate=0.001&noise=0&networkShape=7,6,5,4,3,4&seed=0.66160&showTestData=false&discretize=false&percTrainData=80&x=true&y=true&xTimesY=false&xSquared=true&ySquared=true&cosX=false&sinX=true&cosY=false&sinY=true&collectStats=false&problem=classification&initZero=false)
 
 Using the above example we can begin to test our model.  We'll carry out the following natural experiments:
 

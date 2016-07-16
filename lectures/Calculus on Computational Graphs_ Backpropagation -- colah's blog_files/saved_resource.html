@@ -1,0 +1,2614 @@
+<!DOCTYPE html>
+<!-- saved from url=(0299)https://disqus.com/embed/comments/?base=default&version=b98791869268dd98a49bb8187f4b3b14&f=colah&t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&s_o=default -->
+<html lang="en" dir="ltr" class="js no-touch localstorage sessionstorage contenteditable use-opacity-transitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Disqus Comments</title>
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <style>
+        .alert--warning {
+            border-radius: 3px;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            background-color: #FFE070;
+            color: #A47703;
+        }
+
+        .alert--warning a,
+        .alert--warning a:hover,
+        .alert--warning strong {
+            color: #A47703;
+            font-weight: bold;
+        }
+
+        .alert--error p,
+        .alert--warning p {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        
+        </style>
+    
+    <style>
+        html {
+            overflow: hidden;
+        }
+
+        #error {
+            display: none;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        
+    </style>
+
+<link rel="stylesheet" href="./lounge.2bdd24f112f746efa297bc396a240ad8.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="remote/config" src="./config.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="common.bundle" src="./common.bundle.703e80644630768cd9d79e637218ad85.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="lounge.bundle" src="./lounge.bundle.4cd4f46e9204b8e035c3114ceee40769.js"></script><style id="css_1468432048529"></style><!--<base target="_parent">--><base href="." target="_parent"><link rel="stylesheet" href="./discovery.ec9371c4ef39ecee074c2acf24d5e0e2.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ga" src="./ga.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="discovery/main" src="./discovery.bundle.40e79a6e25f6d95ea88301548969b038.js"></script></head>
+<body>
+    
+
+    
+    <div id="error" class="alert--error">
+        <p>We were unable to load Disqus. If you are a moderator please see our <a href="https://docs.disqus.com/help/83/"> troubleshooting guide</a>. </p>
+    </div>
+
+    
+    <script type="text/json" id="disqus-forumData">{"session":{"canModerate":false,"audienceSyncVerified":false,"mustVerify":false,"canReply":true,"mustVerifyEmail":false},"features":{},"forum":{"category":"Tech","description":null,"founder":"101192604","twitterName":null,"url":"","raw_description":null,"guidelines":null,"favicon":{"permalink":"https://disqus.com/api/forums/favicons/colah.jpg","cache":"//a.disquscdn.com/1467156472/images/favicon-default.png"},"raw_guidelines":null,"language":"en","daysThreadAlive":0,"avatar":{"small":{"permalink":"https://disqus.com/api/forums/avatars/colah.jpg?size=32","cache":"//a.disquscdn.com/1467156472/images/noavatar32.png"},"large":{"permalink":"https://disqus.com/api/forums/avatars/colah.jpg?size=92","cache":"//a.disquscdn.com/1467156472/images/noavatar92.png"}},"channel":null,"daysAlive":0,"pk":"2934426","signedUrl":"","settings":{"supportLevel":0,"adsDRNativeEnabled":false,"disable3rdPartyTrackers":false,"adsVideoEnabled":false,"adsProductVideoEnabled":false,"adsPositionTopEnabled":false,"ssoRequired":false,"linkAffiliationEnabled":true,"adsProductLinksThumbnailsEnabled":false,"adsProductStoriesEnabled":false,"organicDiscoveryEnabled":true,"allowMedia":true,"discoveryMax":false,"discoveryLocked":false,"moderatorText":"","adsEnabled":false,"allowAnonPost":false,"hasCustomAvatar":false,"adultContent":false,"promotedDiscoveryEnabled":false,"allowAnonVotes":false,"mustVerify":true,"colorScheme":"auto","adsSettingsLocked":false,"mustVerifyEmail":true,"audienceSyncEnabled":false,"typeface":"auto","adsPositionBottomEnabled":false,"mediaembedEnabled":true,"adsProductLinksEnabled":false,"discoveryThumbnailsEnabled":false,"isVIP":false},"id":"colah","createdAt":"2014-03-31T14:50:28.559424","name":"colah's blog"}}</script>
+
+    
+    <script type="text/json" id="disqus-threadData">{"cursor":{"hasPrev":false,"prev":null,"total":20,"hasNext":false,"next":"1:0:0"},"code":0,"response":{"lastModified":1466587613,"posts":[{"forum":"colah","parent":null,"isApproved":true,"author":{"username":"tobe433","about":"","name":"tobe433","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.22512,"profileUrl":"https://disqus.com/by/tobe433/","url":"","reputation":1.22512,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2014-04-03T12:01:56","id":"101580442","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/tobe433.jpg","cache":"//a.disquscdn.com/uploads/users/10158/442/avatar32.jpg?1467768294"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/tobe433.jpg","cache":"//a.disquscdn.com/uploads/users/10158/442/avatar92.jpg?1467768294","large":{"permalink":"https://disqus.com/api/users/avatars/tobe433.jpg","cache":"//a.disquscdn.com/uploads/users/10158/442/avatar92.jpg?1467768294"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Great. That helps a lot!","createdAt":"2016-06-22T09:26:52","id":"2744073782","thread":"4084359668","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Great. That helps a lot!\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"colah","parent":null,"isApproved":true,"author":{"username":"alextelfar","about":"","name":"Alex Telfar","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.234165,"profileUrl":"https://disqus.com/by/alextelfar/","url":"","reputation":1.234165,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2015-09-22T00:53:13","id":"175691431","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/alextelfar.jpg","cache":"//a.disquscdn.com/uploads/users/17569/1431/avatar32.jpg?1463998634"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/alextelfar.jpg","cache":"//a.disquscdn.com/uploads/users/17569/1431/avatar92.jpg?1463998634","large":{"permalink":"https://disqus.com/api/users/avatars/alextelfar.jpg","cache":"//a.disquscdn.com/uploads/users/17569/1431/avatar92.jpg?1463998634"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Holy crap, autograd is backprop... and vice versa. I have been using both and didnt even realise. Awesome","createdAt":"2016-05-16T02:26:16","id":"2677762897","thread":"4084359668","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Holy crap, autograd is backprop... and vice versa. I have been using both and didnt even realise. Awesome\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"colah","parent":null,"isApproved":true,"author":{"username":"yaroslavvb","about":"","name":"Yaroslav Bulatov","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.232862,"profileUrl":"https://disqus.com/by/yaroslavvb/","url":"http://yaroslavvb.blogspot.com","reputation":1.232862,"location":"San Francisco, CA","isPrivate":false,"signedUrl":"http://disq.us/?url=http%3A%2F%2Fyaroslavvb.blogspot.com&key=ayydxJ3A5kkewxXcWQh4HA","isPrimary":true,"joinedAt":"2009-08-05T23:16:45","id":"605924","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/yaroslavvb.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar32.png"},"isCustom":false,"permalink":"https://disqus.com/api/users/avatars/yaroslavvb.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar92.png","large":{"permalink":"https://disqus.com/api/users/avatars/yaroslavvb.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar92.png"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"There's another cool algebraic view: for f(g(h(...))) the derivative is F*G*H where * is matmul and F,G,H are Jacobian matrices. If you have many inputs and one output, f is R^n->R^1, then your last matrix is skinny and tall, then Matrix Chain Multiplication solution tells you to do (F G)H, which is reverse mode AD. But if you have many outputs and one input, your H is wide and short, so most efficient is to do F(G H) which is forward mode AD. But also there are cases where neither forward nor reverse mode AD are the most efficient, and those are the \"other\" solutions of the MCM problem","createdAt":"2016-04-23T15:12:49","id":"2638815003","thread":"4084359668","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>There's another cool algebraic view: for f(g(h(...))) the derivative is F*G*H where * is matmul and F,G,H are Jacobian matrices. If you have many inputs and one output, f is R^n-&gt;R^1, then your last matrix is skinny and tall, then Matrix Chain Multiplication solution tells you to do (F G)H, which is reverse mode AD. But if you have many outputs and one input, your H is wide and short, so most efficient is to do F(G H) which is forward mode AD. But also there are cases where neither forward nor reverse mode AD are the most efficient, and those are the \"other\" solutions of the MCM problem\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"colah","parent":null,"isApproved":true,"author":{"username":"disqus_5Utq6YTdcE","about":"","name":"Axio","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.233698,"profileUrl":"https://disqus.com/by/disqus_5Utq6YTdcE/","url":"","reputation":1.233698,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2012-09-13T03:07:59","id":"32073012","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/disqus_5Utq6YTdcE.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar32.png"},"isCustom":false,"permalink":"https://disqus.com/api/users/avatars/disqus_5Utq6YTdcE.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar92.png","large":{"permalink":"https://disqus.com/api/users/avatars/disqus_5Utq6YTdcE.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar92.png"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"That was very insightful. Thanks for taking the time to explain in so much details.","createdAt":"2016-03-23T01:58:07","id":"2584256436","thread":"4084359668","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>That was very insightful. Thanks for taking the time to explain in so much details.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"colah","parent":null,"isApproved":true,"author":{"username":"disqus_DDSw7icB5y","about":"","name":"Emm Kay","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.2336,"profileUrl":"https://disqus.com/by/disqus_DDSw7icB5y/","url":"","reputation":1.2336,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2015-10-07T07:01:56","id":"177603335","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/disqus_DDSw7icB5y.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar32.png"},"isCustom":false,"permalink":"https://disqus.com/api/users/avatars/disqus_DDSw7icB5y.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar92.png","large":{"permalink":"https://disqus.com/api/users/avatars/disqus_DDSw7icB5y.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar92.png"}}},"media":[{"forum":"colah","thumbnailUrl":"//a.disquscdn.com/get?url=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2Fimg%2Ftree-eval-derivs.png&key=YkJbgQvLpB-KLUD5wH004Q","description":"","thread":"4084359668","title":"","url":"http://colah.github.io/posts/2015-08-Backprop/img/tree-eval-derivs.png","htmlHeight":null,"mediaType":"1","metadata":{"create_method":"preview","thumbnail":"//a.disquscdn.com/get?url=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2Fimg%2Ftree-eval-derivs.png&key=YkJbgQvLpB-KLUD5wH004Q"},"thumbnailWidth":1405,"html":"","providerName":"Colah","type":"1","resolvedUrl":"http://colah.github.io/posts/2015-08-Backprop/img/tree-eval-derivs.png","thumbnailHeight":793,"post":"2416434136","thumbnailURL":"//a.disquscdn.com/get?url=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2Fimg%2Ftree-eval-derivs.png&key=YkJbgQvLpB-KLUD5wH004Q","htmlWidth":null,"id":10038576,"location":"http://colah.github.io/posts/2015-08-Backprop/img/tree-eval-derivs.png"}],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Hi!\n\nIn http://colah.github.io/posts/2015-08-Backprop/img/tree-eval-derivs.png, I see why the two nodes aren't really switched or anything. de/dd = c and de/dc = d but Are we adding those derivatives as we go back down the tree?\n\nThe way I see it, the derivative for e=c*d with respect to c should be just c, and d for respect to d? Why doesn't de/da = 3?","createdAt":"2015-12-18T21:19:26","id":"2416434136","thread":"4084359668","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":true,"message":"\u003cp>Hi!\u003c/p>\u003cp>In \u003ca href=\"http://colah.github.io/posts/2015-08-Backprop/img/tree-eval-derivs.png\" rel=\"nofollow\">http://colah.github.io/posts/2...\u003c/a>, I see why the two nodes aren't really switched or anything. de/dd = c and de/dc = d but Are we adding those derivatives as we go back down the tree?\u003c/p>\u003cp>The way I see it, the derivative for e=c*d with respect to c should be just c, and d for respect to d? Why doesn't de/da = 3?\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"colah","parent":2416434136,"isApproved":true,"author":{"username":"disqus_5Utq6YTdcE","about":"","name":"Axio","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.233698,"profileUrl":"https://disqus.com/by/disqus_5Utq6YTdcE/","url":"","reputation":1.233698,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2012-09-13T03:07:59","id":"32073012","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/disqus_5Utq6YTdcE.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar32.png"},"isCustom":false,"permalink":"https://disqus.com/api/users/avatars/disqus_5Utq6YTdcE.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar92.png","large":{"permalink":"https://disqus.com/api/users/avatars/disqus_5Utq6YTdcE.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar92.png"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"(Using \"$\" for the derivative)\n$e/$c = $(c*d)/$c = d = 2. Remember, for example that d(x*7)/dx is 7. In our case, we have \"d\", not 7. You had incorrectly calculated the derivative. Similarly  \n$e/$d = $(c*d)/$d = c = 3.\n\nThen, $e/$a = $(d*c)/$a = d*$c/$a + c*$d/$a = d*$(a+b)/$a + c*$(b+1)/$a = d*1 + c*0 = 2.\n\nI hope this helps.","createdAt":"2016-03-23T01:56:03","id":"2584253908","thread":"4084359668","depth":1,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>(Using \"$\" for the derivative)\u003cbr>$e/$c = $(c*d)/$c = d = 2. Remember, for example that d(x*7)/dx is 7. In our case, we have \"d\", not 7. You had incorrectly calculated the derivative. Similarly  \u003cbr>$e/$d = $(c*d)/$d = c = 3.\u003c/p>\u003cp>Then, $e/$a = $(d*c)/$a = d*$c/$a + c*$d/$a = d*$(a+b)/$a + c*$(b+1)/$a = d*1 + c*0 = 2.\u003c/p>\u003cp>I hope this helps.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"colah","parent":null,"isApproved":true,"author":{"username":"ivankryukov","about":"Ph.D. student in evolutionary biology and high performance computation","name":"Ivan Kryukov","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.235272,"profileUrl":"https://disqus.com/by/ivankryukov/","url":"","reputation":1.235272,"location":"Calgary, AB","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2013-07-21T07:51:08","id":"63438245","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/ivankryukov.jpg","cache":"//a.disquscdn.com/uploads/users/6343/8245/avatar32.jpg?1415325875"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/ivankryukov.jpg","cache":"//a.disquscdn.com/uploads/users/6343/8245/avatar92.jpg?1415325875","large":{"permalink":"https://disqus.com/api/users/avatars/ivankryukov.jpg","cache":"//a.disquscdn.com/uploads/users/6343/8245/avatar92.jpg?1415325875"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Great article, thank you so much!\nIn the conclusion, you mention \"surely, you'd just get stuck at local minima\", indicating that this is not the case. Are there any general principles that guarantee that you would not?\nCan you perhaps provide a few pointers on this?\nThanks!","createdAt":"2015-11-18T05:00:06","id":"2365692304","thread":"4084359668","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Great article, thank you so much!\u003cbr>In the conclusion, you mention \"surely, you'd just get stuck at local minima\", indicating that this is not the case. Are there any general principles that guarantee that you would not?\u003cbr>Can you perhaps provide a few pointers on this?\u003cbr>Thanks!\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"colah","parent":2365692304,"isApproved":true,"author":{"username":"amreldesoky","about":"Research Associate, chair of Complex and Intelligent Systems (CIS), University of Passau, Germany. Interested in Deep Learning with a focus on ASR and NLP","name":"Amr El-Desoky Mousa","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.233329,"profileUrl":"https://disqus.com/by/amreldesoky/","url":"","reputation":1.233329,"location":"Germany","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2015-11-28T10:06:43","id":"184712031","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/amreldesoky.jpg","cache":"//a.disquscdn.com/uploads/users/18471/2031/avatar32.jpg?1460727775"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/amreldesoky.jpg","cache":"//a.disquscdn.com/uploads/users/18471/2031/avatar92.jpg?1460727775","large":{"permalink":"https://disqus.com/api/users/avatars/amreldesoky.jpg","cache":"//a.disquscdn.com/uploads/users/18471/2031/avatar92.jpg?1460727775"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"I would like to also point that there some number of techniques that aim at preventing the network from getting stuck at local minima or  saddle points, like learning rate tuning and pre-training.","createdAt":"2016-04-15T16:01:33","id":"2625353989","thread":"4084359668","depth":1,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>I would like to also point that there some number of techniques that aim at preventing the network from getting stuck at local minima or  saddle points, like learning rate tuning and pre-training.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"colah","parent":2365692304,"isApproved":true,"author":{"username":"chrisolah","about":"Aspiring mathematician","name":"chrisolah","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.3504239999999998,"profileUrl":"https://disqus.com/by/chrisolah/","url":"http://christopherolah.wordpress.com/","reputation":1.3504239999999998,"location":"Toronto, Canada","isPrivate":false,"signedUrl":"http://disq.us/?url=http%3A%2F%2Fchristopherolah.wordpress.com%2F&key=G4zSRLKWfLH533-Uuaypeg","isPrimary":true,"joinedAt":"2014-03-31T18:49:44","id":"101192604","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/chrisolah.jpg","cache":"//a.disquscdn.com/uploads/users/10119/2604/avatar32.jpg?1396292113"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/chrisolah.jpg","cache":"//a.disquscdn.com/uploads/users/10119/2604/avatar92.jpg?1396292113","large":{"permalink":"https://disqus.com/api/users/avatars/chrisolah.jpg","cache":"//a.disquscdn.com/uploads/users/10119/2604/avatar92.jpg?1396292113"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"When we train neural networks, we don't find the global minima. Actually, we also don't even find a local minima: recent research suggests we get stuck on saddle points (eg. see some Ian Goodfellow and collaborators recent papers).\n\n\nBut, surprisingly, things still work really well! What's going on? Well, we still find good enough points that neural networks work well, even if they aren't minima.","createdAt":"2015-11-18T06:27:37","id":"2365760935","thread":"4084359668","depth":1,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>When we train neural networks, we don't find the global minima. Actually, we also don't even find a local minima: recent research suggests we get stuck on saddle points (eg. see some Ian Goodfellow and collaborators recent papers).\u003c/p>\u003cp>But, surprisingly, things still work really well! What's going on? Well, we still find good enough points that neural networks work well, even if they aren't minima.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"colah","parent":2365760935,"isApproved":true,"author":{"username":"ivankryukov","about":"Ph.D. student in evolutionary biology and high performance computation","name":"Ivan Kryukov","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.235272,"profileUrl":"https://disqus.com/by/ivankryukov/","url":"","reputation":1.235272,"location":"Calgary, AB","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2013-07-21T07:51:08","id":"63438245","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/ivankryukov.jpg","cache":"//a.disquscdn.com/uploads/users/6343/8245/avatar32.jpg?1415325875"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/ivankryukov.jpg","cache":"//a.disquscdn.com/uploads/users/6343/8245/avatar92.jpg?1415325875","large":{"permalink":"https://disqus.com/api/users/avatars/ivankryukov.jpg","cache":"//a.disquscdn.com/uploads/users/6343/8245/avatar92.jpg?1415325875"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Thank you.\nI will look into Ian's papers.","createdAt":"2015-11-18T06:39:42","id":"2365769597","thread":"4084359668","depth":2,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Thank you.\u003cbr>I will look into Ian's papers.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"colah","parent":null,"isApproved":true,"author":{"username":"pateheo","about":"lone man","name":"Phong","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.235814,"profileUrl":"https://disqus.com/by/pateheo/","url":"","reputation":1.235814,"location":"Paris","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2015-05-22T20:15:35","id":"158689395","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/pateheo.jpg","cache":"//a.disquscdn.com/uploads/users/15868/9395/avatar32.jpg?1447021293"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/pateheo.jpg","cache":"//a.disquscdn.com/uploads/users/15868/9395/avatar92.jpg?1447021293","large":{"permalink":"https://disqus.com/api/users/avatars/pateheo.jpg","cache":"//a.disquscdn.com/uploads/users/15868/9395/avatar92.jpg?1447021293"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Insightful! In fact this post shares the viewpoint with http://neuralnetworksanddeeplearning.com/chap2.html, Chap2, section The Big Picture.","createdAt":"2015-11-17T23:05:28","id":"2365330195","thread":"4084359668","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Insightful! In fact this post shares the viewpoint with \u003ca href=\"http://neuralnetworksanddeeplearning.com/chap2.html\" rel=\"nofollow\">http://neuralnetworksanddeeple...\u003c/a>, Chap2, section The Big Picture.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"colah","parent":null,"isApproved":true,"author":{"username":"mrityunjoypande","about":"","name":"mrityunjoy pande","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.234361,"profileUrl":"https://disqus.com/by/mrityunjoypande/","url":"","reputation":1.234361,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2013-09-15T16:08:36","id":"73306671","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/mrityunjoypande.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar32.png"},"isCustom":false,"permalink":"https://disqus.com/api/users/avatars/mrityunjoypande.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar92.png","large":{"permalink":"https://disqus.com/api/users/avatars/mrityunjoypande.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar92.png"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"If we find all paths from target node to all source nodes, that will also give all paths between target and intermediate nodes. for a feed forward, adding the edges is ok, for speedup but for recurrent, is all path a better option for back propagation.","createdAt":"2015-10-28T20:44:31","id":"2331864900","thread":"4084359668","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>If we find all paths from target node to all source nodes, that will also give all paths between target and intermediate nodes. for a feed forward, adding the edges is ok, for speedup but for recurrent, is all path a better option for back propagation.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"colah","parent":null,"isApproved":true,"author":{"username":"disqus_i8lau595jR","about":"","name":"Jack Scully","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.233329,"profileUrl":"https://disqus.com/by/disqus_i8lau595jR/","url":"","reputation":1.233329,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2013-12-24T14:57:51","id":"87756943","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/disqus_i8lau595jR.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar32.png"},"isCustom":false,"permalink":"https://disqus.com/api/users/avatars/disqus_i8lau595jR.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar92.png","large":{"permalink":"https://disqus.com/api/users/avatars/disqus_i8lau595jR.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar92.png"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Great post, love this blog. Keep it up!","createdAt":"2015-10-18T17:21:42","id":"2313728104","thread":"4084359668","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Great post, love this blog. Keep it up!\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"colah","parent":null,"isApproved":true,"author":{"username":"ob0","about":"","name":"OB","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.236183,"profileUrl":"https://disqus.com/by/ob0/","url":"","reputation":1.236183,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2015-10-16T06:10:14","id":"178747022","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/ob0.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar32.png"},"isCustom":false,"permalink":"https://disqus.com/api/users/avatars/ob0.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar92.png","large":{"permalink":"https://disqus.com/api/users/avatars/ob0.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar92.png"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"So, if we have small number of input units and huge number of output units, forward mode works more efficient than the back propagation (reverse mode), and it's almost always not the case (# of input units are huge, and # of output units relatively few)? \n\nThanks","createdAt":"2015-10-16T08:08:08","id":"2310090857","thread":"4084359668","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>So, if we have small number of input units and huge number of output units, forward mode works more efficient than the back propagation (reverse mode), and it's almost always not the case (# of input units are huge, and # of output units relatively few)?\u003c/p>\u003cp>Thanks\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"colah","parent":2310090857,"isApproved":true,"author":{"username":"chrisolah","about":"Aspiring mathematician","name":"chrisolah","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.3504239999999998,"profileUrl":"https://disqus.com/by/chrisolah/","url":"http://christopherolah.wordpress.com/","reputation":1.3504239999999998,"location":"Toronto, Canada","isPrivate":false,"signedUrl":"http://disq.us/?url=http%3A%2F%2Fchristopherolah.wordpress.com%2F&key=G4zSRLKWfLH533-Uuaypeg","isPrimary":true,"joinedAt":"2014-03-31T18:49:44","id":"101192604","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/chrisolah.jpg","cache":"//a.disquscdn.com/uploads/users/10119/2604/avatar32.jpg?1396292113"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/chrisolah.jpg","cache":"//a.disquscdn.com/uploads/users/10119/2604/avatar92.jpg?1396292113","large":{"permalink":"https://disqus.com/api/users/avatars/chrisolah.jpg","cache":"//a.disquscdn.com/uploads/users/10119/2604/avatar92.jpg?1396292113"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"If you want the derivatives of all the outputs with respect to all the inputs, yes.\n\n\nIn machine learning, we usually only care about one output (the cost) with respect to lots of inputs (the parameters) so backprop is great.","createdAt":"2015-11-18T06:29:09","id":"2365762112","thread":"4084359668","depth":1,"numReports":0,"isDeletedByAuthor":false,"likes":1,"isEdited":false,"message":"\u003cp>If you want the derivatives of all the outputs with respect to all the inputs, yes.\u003c/p>\u003cp>In machine learning, we usually only care about one output (the cost) with respect to lots of inputs (the parameters) so backprop is great.\u003c/p>","isSpam":false,"isHighlighted":false,"points":1},{"forum":"colah","parent":2365762112,"isApproved":true,"author":{"username":"ob0","about":"","name":"OB","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.236183,"profileUrl":"https://disqus.com/by/ob0/","url":"","reputation":1.236183,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2015-10-16T06:10:14","id":"178747022","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/ob0.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar32.png"},"isCustom":false,"permalink":"https://disqus.com/api/users/avatars/ob0.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar92.png","large":{"permalink":"https://disqus.com/api/users/avatars/ob0.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar92.png"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Thank you, Chris.","createdAt":"2015-11-19T18:15:09","id":"2368599775","thread":"4084359668","depth":2,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Thank you, Chris.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"colah","parent":null,"isApproved":true,"author":{"username":"BohraKunal","about":"","name":"Kunal Bohra","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.233231,"profileUrl":"https://disqus.com/by/BohraKunal/","url":"","reputation":1.233231,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2015-09-23T11:28:10","id":"175871953","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/BohraKunal.jpg","cache":"//a.disquscdn.com/uploads/users/17587/1953/avatar32.jpg?1445489419"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/BohraKunal.jpg","cache":"//a.disquscdn.com/uploads/users/17587/1953/avatar92.jpg?1445489419","large":{"permalink":"https://disqus.com/api/users/avatars/BohraKunal.jpg","cache":"//a.disquscdn.com/uploads/users/17587/1953/avatar92.jpg?1445489419"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Loved it.","createdAt":"2015-10-14T08:24:41","id":"2306480931","thread":"4084359668","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Loved it.\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"colah","parent":null,"isApproved":true,"author":{"username":"disqus_VqXOgteJh4","about":"","name":"Alejandro Mart\u00ednez","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.232124,"profileUrl":"https://disqus.com/by/disqus_VqXOgteJh4/","url":"","reputation":1.232124,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2015-09-11T14:22:00","id":"174057916","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/disqus_VqXOgteJh4.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar32.png"},"isCustom":false,"permalink":"https://disqus.com/api/users/avatars/disqus_VqXOgteJh4.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar92.png","large":{"permalink":"https://disqus.com/api/users/avatars/disqus_VqXOgteJh4.jpg","cache":"//a.disquscdn.com/1467156472/images/noavatar92.png"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Excellent. \n\nThank you for effort in simplified .\n\n\u263a","createdAt":"2015-09-11T14:23:56","id":"2248100739","thread":"4084359668","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Excellent.\u003c/p>\u003cp>Thank you for effort in simplified .\u003c/p>\u003cp>\u263a\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"colah","parent":null,"isApproved":true,"author":{"username":"masakinakada","about":"","name":"Masaki Nakada","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.232124,"profileUrl":"https://disqus.com/by/masakinakada/","url":"","reputation":1.232124,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2015-09-04T15:55:14","id":"173154300","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/masakinakada.jpg","cache":"//a.disquscdn.com/uploads/users/17315/4300/avatar32.jpg?1441382220"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/masakinakada.jpg","cache":"//a.disquscdn.com/uploads/users/17315/4300/avatar92.jpg?1441382220","large":{"permalink":"https://disqus.com/api/users/avatars/masakinakada.jpg","cache":"//a.disquscdn.com/uploads/users/17315/4300/avatar92.jpg?1441382220"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Loved this article! Thank you so much Christopher!","createdAt":"2015-09-04T15:56:59","id":"2236059804","thread":"4084359668","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":true,"message":"\u003cp>Loved this article! Thank you so much Christopher!\u003c/p>","isSpam":false,"isHighlighted":false,"points":0},{"forum":"colah","parent":null,"isApproved":true,"author":{"username":"deathbullet","about":"","name":"deathbullet","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.2374859999999999,"profileUrl":"https://disqus.com/by/deathbullet/","url":"","reputation":1.2374859999999999,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2014-07-12T14:45:30","id":"114120911","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/deathbullet.jpg","cache":"//a.disquscdn.com/uploads/users/11412/911/avatar32.jpg?1462040203"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/deathbullet.jpg","cache":"//a.disquscdn.com/uploads/users/11412/911/avatar92.jpg?1462040203","large":{"permalink":"https://disqus.com/api/users/avatars/deathbullet.jpg","cache":"//a.disquscdn.com/uploads/users/11412/911/avatar92.jpg?1462040203"}}},"media":[],"isDeleted":false,"isFlagged":false,"dislikes":0,"raw_message":"Lovely. Thanks !","createdAt":"2015-09-01T16:54:29","id":"2230181637","thread":"4084359668","depth":0,"numReports":0,"isDeletedByAuthor":false,"likes":0,"isEdited":false,"message":"\u003cp>Lovely. Thanks !\u003c/p>","isSpam":false,"isHighlighted":false,"points":0}],"thread":{"feed":"https://colah.disqus.com/calculus_on_computational_graphs_backpropagation_57/latest.rss","identifiers":["/posts/2015-08-Backprop/disqussion-14","/posts/2015-08-Backprop/disqussion-12","/posts/2015-08-Backprop/disqussion-13"],"dislikes":0,"likes":9,"message":"","id":"4084359668","isDeleted":false,"category":"2978543","author":"101192604","userScore":0,"userSubscription":false,"isSpam":false,"signedLink":"http://disq.us/?url=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&key=BFzxrJ8gIOU-xb_QffkFaA","createdAt":"2015-08-31T16:46:59","hasStreaming":false,"raw_message":"","isClosed":false,"link":"http://colah.github.io/posts/2015-08-Backprop/","slug":"calculus_on_computational_graphs_backpropagation_57","forum":"colah","clean_title":"Calculus on Computational Graphs: Backpropagation","posts":20,"moderators":[101192604],"title":"Calculus on Computational Graphs: Backpropagation","highlightedPost":null}},"order":"popular"}</script>
+
+    
+
+    <div id="fixed-content"></div>
+
+
+    
+        
+<script type="text/json" id="disqus-urls">{
+    "root":"//disqus.com",
+    "next":"//a.disquscdn.com/next/current/embed"
+}</script>
+
+        <script src="./lounge.load.b98791869268dd98a49bb8187f4b3b14.js" id="bootstrap-script" data-app="lounge" async=""></script>
+    
+
+
+<div id="layout" data-tracking-area="layout">
+
+<div id="onboard" data-tracking-area="onboard"></div>
+
+<div id="highlighted-post" data-tracking-area="highlighted" class="highlighted-post" style="display: none;"></div>
+
+<div id="global-alert"></div>
+
+<header id="main-nav" data-tracking-area="main-nav">
+<nav class="nav nav-primary">
+<ul>
+<li class="tab-conversation active" data-role="post-count"><a class="publisher-nav-color">
+<span class="comment-count">
+20 comments
+</span>
+
+<span class="comment-count-placeholder">
+Comments
+</span>
+</a>
+</li>
+<li class="tab-community">
+<a href="https://disqus.com/home/forums/colah/" class="publisher-nav-color" data-action="community-sidebar" data-forum="colah" id="community-tab">
+<span class="community-name">
+<strong>colah's blog</strong>
+
+</span>
+
+<strong class="community-name-placeholder">Community</strong>
+</a>
+</li>
+<li class="dropdown user-menu" data-role="logout"><a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="dropdown-toggle" data-toggle="dropdown">
+<span class="dropdown-toggle-wrapper">
+
+<span>
+Login
+</span>
+
+</span> <span class="caret"></span>
+</a>
+<ul class="dropdown-menu">
+
+
+<li>
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="auth:disqus">Disqus</a>
+</li>
+<li>
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="auth:facebook">Facebook</a>
+</li>
+<li>
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="auth:twitter">Twitter</a>
+</li>
+<li>
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="auth:google">Google</a>
+</li>
+
+
+
+</ul>
+</li>
+<li class="notification-menu unread" data-role="notification-menu"><a href="https://disqus.com/home/inbox/" class="notification-container" data-action="home" data-home-path="home/inbox/">
+<span class="notification-icon icon-comment" aria-hidden=""></span>
+<span class="notification-count" data-role="notification-count">1</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+
+<section id="conversation" data-role="main" data-tracking-area="main">
+<div class="nav nav-secondary" data-tracking-area="secondary-nav">
+<ul>
+<li id="recommend-button" class="recommend dropdown">
+<div class="thread-likes"><a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="recommend" title="Recommend this discussion" class="dropdown-toggle ">
+<span class="icon-heart"></span>
+<span class="label label-default">Recommend</span>
+<span class="label label-recommended">Recommended</span>
+<span class="label label-count">9</span>
+</a>
+<ul class="dropdown-menu coachmark">
+<li>
+<h2>Discussion Recommended!</h2>
+<p>Recommending means this is a discussion worth sharing. It gets shared to your followers' Disqus feeds, and gives the creator kudos!</p>
+<a href="https://disqus.com/home/?utm_source=disqus_embed&amp;utm_content=recommend_btn" class="btn btn-primary" target="_blank">
+ Find More Discussions 
+</a>
+</li>
+</ul>
+</div></li>
+<li id="thread-share-menu" class="dropdown share-menu hidden-sm"><a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="dropdown-toggle" data-toggle="dropdown" title="Share">
+<span class="icon-export"></span>
+<span class="label">Share</span>
+</a>
+<ul class="share-menu dropdown-menu">
+<li class="share">Share this discussion on
+<ul>
+<li class="twitter">
+<a data-action="share:twitter" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#">Twitter</a>
+</li>
+<li class="facebook">
+<a data-action="share:facebook" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#">Facebook</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li data-role="post-sort" class="dropdown sorting pull-right">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="dropdown-toggle" data-toggle="dropdown">
+Sort by Best
+
+
+<span class="caret"></span>
+</a>
+<ul class="dropdown-menu pull-right">
+<li class="selected">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="sort" data-sort="popular">Best<i aria-hidden="true" class="icon-checkmark"></i></a>
+</li>
+
+<li>
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="sort" data-sort="desc">Newest<i aria-hidden="true" class="icon-checkmark"></i></a>
+</li>
+
+<li>
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="sort" data-sort="asc">Oldest<i aria-hidden="true" class="icon-checkmark"></i></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div id="posts">
+<div id="form"><form class="reply">
+<div class="postbox">
+<div role="alert"></div>
+<div class="avatar">
+<span class="user">
+<img data-role="user-avatar" src="./noavatar92.7b2fde640943965cc88df0cdee365907.png" alt="Avatar">
+</span>
+</div>
+
+<div class="textarea-wrapper" data-role="textarea" dir="auto"><div><span class="placeholder">Join the discussion…</span><div class="textarea" tabindex="0" role="textbox" aria-multiline="true" contenteditable="PLAINTEXT-ONLY" data-role="editable" aria-label="Join the discussion…" style="overflow: auto; max-height: 350px;"><p><br></p></div><div style="display: none;"><ul class="suggestions">
+<li class="header">
+<h5>in this conversation</h5>
+</li>
+</ul>
+</div></div>
+<div data-role="drag-drop-placeholder" class="media-drag-hover" style="display: none">
+<div class="drag-text">
+⬇ Drag and drop your images here to upload them.
+</div>
+</div>
+<div class="media-preview empty" data-role="media-preview"><ul data-role="media-legacy-list"></ul>
+<ul data-role="media-progress-list"></ul>
+<ul data-role="media-rich-list"></ul>
+<div class="media-expanded empty" data-role="media-preview-expanded">
+<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-role="media-preview-expanded-image" alt="Media preview placeholder">
+</div>
+</div>
+<div class="edit-alert" role="postbox-alert"></div>
+<div class="post-actions">
+<ul class="wysiwyg">
+<li data-role="media-uploader"><a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" tabindex="-1" data-action="attach" class="attach" title="Upload Images"><span>Attach</span></a>
+<input type="file" data-role="media-upload" tabindex="-1" accept="image/*">
+</li>
+</ul>
+</div>
+</div>
+
+<div data-role="login-form"><div><section class="auth-section logged-out">
+<div class="connect">
+<h6>Log in with</h6>
+<ul data-role="login-menu" class="services login-buttons">
+
+
+<li class="auth-disqus">
+<button type="button" data-action="auth:disqus" title="Disqus"><i class="icon-disqus"></i></button>
+</li>
+<li class="auth-facebook">
+<button type="button" data-action="auth:facebook" title="Facebook"><i class="icon-facebook-circle"></i></button>
+</li>
+<li class="auth-twitter">
+<button type="button" data-action="auth:twitter" title="Twitter"><i class="icon-twitter-circle"></i></button>
+</li>
+<li class="auth-google">
+<button type="button" data-action="auth:google" title="Google"><i class="icon-google-plus-circle"></i></button>
+</li>
+</ul>
+</div>
+<div class="guest">
+<h6 class="guest-form-title">
+<span class="register-text"> or sign up with Disqus </span>
+<span class="guest-text"> or pick a name </span>
+</h6>
+
+<div class="what-is-disqus help-icon">
+<div id="rules" class="tooltip show">
+<h3>Disqus is a discussion network</h3>
+<ul>
+<li><span>Disqus never moderates or censors. The rules on this community are its own.</span></li>
+<li><span>Your email is safe with us. It's only used for moderation and optional notifications.</span></li>
+<li><span>Don't be a jerk or do anything illegal. Everything is easier that way.</span></li>
+</ul>
+<p class="clearfix"><a href="https://docs.disqus.com/kb/terms-and-policies/" class="btn btn-small" target="_blank">Read full terms and conditions</a></p>
+</div>
+</div>
+
+<p class="input-wrapper">
+<input dir="auto" type="text" placeholder="Name" name="display_name" id="view69_display_name" maxlength="30">
+</p>
+
+<div class="guest-details " data-role="guest-details">
+<p class="input-wrapper">
+<input dir="auto" type="email" placeholder="Email" name="email" id="view69_email">
+</p>
+
+<p class="input-wrapper">
+<input dir="auto" type="password" class="register-text" placeholder="Password" name="password" id="view69_password">
+</p>
+
+<div class="acceptance-wrapper register-text">
+By signing up, you agree to the Disqus <a target="_blank" href="https://help.disqus.com/customer/portal/articles/1753105-basic-rules-for-disqus-powered-profiles-and-discussions">Basic Rules</a>, <a target="_blank" href="https://help.disqus.com/customer/portal/articles/466260-terms-of-service">Terms of Service</a>, and <a target="_blank" href="https://help.disqus.com/customer/portal/articles/466259-privacy-policy">Privacy Policy</a>.
+</div>
+<div class="acceptance-wrapper guest-text">
+By posting, you agree to the Disqus <a target="_blank" href="https://help.disqus.com/customer/portal/articles/1753105-basic-rules-for-disqus-powered-profiles-and-discussions">Basic Rules</a>, <a target="_blank" href="https://help.disqus.com/customer/portal/articles/466260-terms-of-service">Terms of Service</a>, and <a target="_blank" href="https://help.disqus.com/customer/portal/articles/466259-privacy-policy">Privacy Policy</a>.
+</div>
+
+<input type="checkbox" name="author-guest" style="display:none">
+
+<div class="proceed" data-role="submit-btn-container">
+<button type="submit" class="btn submit" aria-label="Next"><span class="icon-proceed"></span><div class="spinner"></div></button>
+</div>
+</div>
+</div>
+</section>
+
+</div></div>
+</div>
+</form></div>
+
+<button class="alert realtime" style="display: none" data-role="realtime-notification">
+</button>
+
+<div id="no-posts" style="display:none"></div>
+
+<ul id="post-list" class="post-list"><li class="post" id="post-2744073782"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/tobe433/" class="user" data-action="profile" data-username="tobe433">
+<img data-role="user-avatar" data-user="101580442" src="./avatar92.jpg" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/tobe433/" data-action="profile" data-username="tobe433" data-role="username">tobe433</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2744073782" data-role="relative-time" class="time-ago" title="Wednesday, June 22, 2016 5:26 AM">
+21 days ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Great. That helps a lot!</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/19dr0vq" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2744073782">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li class="post" id="post-2677762897"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/alextelfar/" class="user" data-action="profile" data-username="alextelfar">
+<img data-role="user-avatar" data-user="175691431" src="./avatar92(1).jpg" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/alextelfar/" data-action="profile" data-username="alextelfar" data-role="username">Alex Telfar</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2677762897" data-role="relative-time" class="time-ago" title="Sunday, May 15, 2016 10:26 PM">
+2 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Holy crap, autograd is backprop... and vice versa. I have been using both and didnt even realise. Awesome</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/18a9r2p" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2677762897">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li class="post" id="post-2638815003"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/yaroslavvb/" class="user" data-action="profile" data-username="yaroslavvb">
+<img data-role="user-avatar" data-user="605924" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/yaroslavvb/" data-action="profile" data-username="yaroslavvb" data-role="username">Yaroslav Bulatov</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2638815003" data-role="relative-time" class="time-ago" title="Saturday, April 23, 2016 11:12 AM">
+3 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>There's another cool algebraic view: for f(g(h(...))) the derivative is F*G*H where * is matmul and F,G,H are Jacobian matrices. If you have many inputs and one output, f is R^n-&gt;R^1, then your last matrix is skinny and tall, then Matrix Chain Multiplication solution tells you to do (F G)H, which is reverse mode AD. But if you have many outputs and one input, your H is wide and short, so most efficient is to do F(G H) which is forward mode AD. But also there are cases where neither forward nor reverse mode AD are the most efficient, and those are the "other" solutions of the MCM problem</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/17n2yor" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2638815003">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li class="post" id="post-2584256436"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/disqus_5Utq6YTdcE/" class="user" data-action="profile" data-username="disqus_5Utq6YTdcE">
+<img data-role="user-avatar" data-user="32073012" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/disqus_5Utq6YTdcE/" data-action="profile" data-username="disqus_5Utq6YTdcE" data-role="username">Axio</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2584256436" data-role="relative-time" class="time-ago" title="Tuesday, March 22, 2016 9:58 PM">
+4 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>That was very insightful. Thanks for taking the time to explain in so much details.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/16qll10" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2584256436">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li class="post" id="post-2416434136"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/disqus_DDSw7icB5y/" class="user" data-action="profile" data-username="disqus_DDSw7icB5y">
+<img data-role="user-avatar" data-user="177603335" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/disqus_DDSw7icB5y/" data-action="profile" data-username="disqus_DDSw7icB5y" data-role="username">Emm Kay</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2416434136" data-role="relative-time" class="time-ago" title="Friday, December 18, 2015 4:19 PM">
+7 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Hi!</p><p>In <span></span><div class="media-container media-mode-deferred media-activated">
+<a class="media-button media-button-expand publisher-color publisher-border-color" href="http://colah.github.io/posts/2015-08-Backprop/img/tree-eval-derivs.png" rel="nofollow" target="_blank" data-action="expand" title="">
+<i class="icon-images publisher-background-color"></i>
+View
+</a>
+<a class="media-button media-button-contract publisher-color publisher-border-color" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" target="_blank" data-action="contract">
+<i class="icon-cancel publisher-background-color"></i> Hide
+</a>
+<div class="media-content-loader" data-role="content-loader"></div>
+<div data-role="content-placeholder" class="media-content-placeholder" style="height: auto;"><a href="http://colah.github.io/posts/2015-08-Backprop/img/tree-eval-derivs.png" target="_blank" rel="nofollow">
+<img src="./get" alt="Thumbnail" height="389">
+</a></div>
+</div>, I see why the two nodes aren't really switched or anything. de/dd = c and de/dc = d but Are we adding those derivatives as we go back down the tree?</p><p>The way I see it, the derivative for e=c*d with respect to c should be just c, and d for respect to d? Why doesn't de/da = 3?</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/13yokig" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2416434136">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"><li class="post" id="post-2584253908"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/disqus_5Utq6YTdcE/" class="user" data-action="profile" data-username="disqus_5Utq6YTdcE">
+<img data-role="user-avatar" data-user="32073012" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/disqus_5Utq6YTdcE/" data-action="profile" data-username="disqus_5Utq6YTdcE" data-role="username">Axio</a></span>
+
+<span><a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2416434136" class="parent-link" data-role="parent-link"><i aria-hidden="true" class="icon-forward" title="in reply to"></i> Emm Kay</a></span>
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2584253908" data-role="relative-time" class="time-ago" title="Tuesday, March 22, 2016 9:56 PM">
+4 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>(Using "$" for the derivative)<br>$e/$c = $(c*d)/$c = d = 2. Remember, for example that d(x*7)/dx is 7. In our case, we have "d", not 7. You had incorrectly calculated the derivative. Similarly  <br>$e/$d = $(c*d)/$d = c = 3.</p><p>Then, $e/$a = $(d*c)/$a = d*$c/$a + c*$d/$a = d*$(a+b)/$a + c*$(b+1)/$a = d*1 + c*0 = 2.</p><p>I hope this helps.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/16qlj2s" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2584253908">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li></ul>
+
+</li><li class="post" id="post-2365692304"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/ivankryukov/" class="user" data-action="profile" data-username="ivankryukov">
+<img data-role="user-avatar" data-user="63438245" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/ivankryukov/" data-action="profile" data-username="ivankryukov" data-role="username">Ivan Kryukov</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2365692304" data-role="relative-time" class="time-ago" title="Wednesday, November 18, 2015 12:00 AM">
+8 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Great article, thank you so much!<br>In the conclusion, you mention "surely, you'd just get stuck at local minima", indicating that this is not the case. Are there any general principles that guarantee that you would not?<br>Can you perhaps provide a few pointers on this?<br>Thanks!</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/134gzv4" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2365692304">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"><li class="post" id="post-2625353989"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/amreldesoky/" class="user" data-action="profile" data-username="amreldesoky">
+<img data-role="user-avatar" data-user="184712031" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/amreldesoky/" data-action="profile" data-username="amreldesoky" data-role="username">Amr El-Desoky Mousa</a></span>
+
+<span><a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2365692304" class="parent-link" data-role="parent-link"><i aria-hidden="true" class="icon-forward" title="in reply to"></i> Ivan Kryukov</a></span>
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2625353989" data-role="relative-time" class="time-ago" title="Friday, April 15, 2016 12:01 PM">
+3 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>I would like to also point that there some number of techniques that aim at preventing the network from getting stuck at local minima or  saddle points, like learning rate tuning and pre-training.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/17f2g3p" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2625353989">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li class="post" id="post-2365760935"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/chrisolah/" class="user" data-action="profile" data-username="chrisolah">
+<img data-role="user-avatar" data-user="101192604" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/chrisolah/" data-action="profile" data-username="chrisolah" data-role="username">chrisolah</a></span>
+<span class="badge moderator">Mod</span>
+
+<span><a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2365692304" class="parent-link" data-role="parent-link"><i aria-hidden="true" class="icon-forward" title="in reply to"></i> Ivan Kryukov</a></span>
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2365760935" data-role="relative-time" class="time-ago" title="Wednesday, November 18, 2015 1:27 AM">
+8 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>When we train neural networks, we don't find the global minima. Actually, we also don't even find a local minima: recent research suggests we get stuck on saddle points (eg. see some Ian Goodfellow and collaborators recent papers).</p><p>But, surprisingly, things still work really well! What's going on? Well, we still find good enough points that neural networks work well, even if they aren't minima.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/134igtj" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2365760935">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"><li class="post" id="post-2365769597"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/ivankryukov/" class="user" data-action="profile" data-username="ivankryukov">
+<img data-role="user-avatar" data-user="63438245" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/ivankryukov/" data-action="profile" data-username="ivankryukov" data-role="username">Ivan Kryukov</a></span>
+
+<span><a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2365760935" class="parent-link" data-role="parent-link"><i aria-hidden="true" class="icon-forward" title="in reply to"></i> chrisolah</a></span>
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2365769597" data-role="relative-time" class="time-ago" title="Wednesday, November 18, 2015 1:39 AM">
+8 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Thank you.<br>I will look into Ian's papers.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/134ini5" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2365769597">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li></ul>
+
+</li></ul>
+
+</li><li class="post" id="post-2365330195"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/pateheo/" class="user" data-action="profile" data-username="pateheo">
+<img data-role="user-avatar" data-user="158689395" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/pateheo/" data-action="profile" data-username="pateheo" data-role="username">Phong</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2365330195" data-role="relative-time" class="time-ago" title="Tuesday, November 17, 2015 6:05 PM">
+8 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Insightful! In fact this post shares the viewpoint with <a href="http://neuralnetworksanddeeplearning.com/chap2.html" rel="nofollow">http://neuralnetworksanddeeple...</a>, Chap2, section The Big Picture.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/13498gj" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2365330195">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li class="post" id="post-2331864900"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/mrityunjoypande/" class="user" data-action="profile" data-username="mrityunjoypande">
+<img data-role="user-avatar" data-user="73306671" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/mrityunjoypande/" data-action="profile" data-username="mrityunjoypande" data-role="username">mrityunjoy pande</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2331864900" data-role="relative-time" class="time-ago" title="Wednesday, October 28, 2015 4:44 PM">
+8 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>If we find all paths from target node to all source nodes, that will also give all paths between target and intermediate nodes. for a feed forward, adding the edges is ok, for speedup but for recurrent, is all path a better option for back propagation.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/12kbyh0" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2331864900">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li class="post" id="post-2313728104"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/disqus_i8lau595jR/" class="user" data-action="profile" data-username="disqus_i8lau595jR">
+<img data-role="user-avatar" data-user="87756943" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/disqus_i8lau595jR/" data-action="profile" data-username="disqus_i8lau595jR" data-role="username">Jack Scully</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2313728104" data-role="relative-time" class="time-ago" title="Sunday, October 18, 2015 1:21 PM">
+9 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Great post, love this blog. Keep it up!</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/129j814" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2313728104">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li class="post" id="post-2310090857"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/ob0/" class="user" data-action="profile" data-username="ob0">
+<img data-role="user-avatar" data-user="178747022" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/ob0/" data-action="profile" data-username="ob0" data-role="username">OB</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2310090857" data-role="relative-time" class="time-ago" title="Friday, October 16, 2015 4:08 AM">
+9 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>So, if we have small number of input units and huge number of output units, forward mode works more efficient than the back propagation (reverse mode), and it's almost always not the case (# of input units are huge, and # of output units relatively few)?</p><p>Thanks</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/127d9ih" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2310090857">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"><li class="post" id="post-2365762112"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/chrisolah/" class="user" data-action="profile" data-username="chrisolah">
+<img data-role="user-avatar" data-user="101192604" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/chrisolah/" data-action="profile" data-username="chrisolah" data-role="username">chrisolah</a></span>
+<span class="badge moderator">Mod</span>
+
+<span><a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2310090857" class="parent-link" data-role="parent-link"><i aria-hidden="true" class="icon-forward" title="in reply to"></i> OB</a></span>
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2365762112" data-role="relative-time" class="time-ago" title="Wednesday, November 18, 2015 1:29 AM">
+8 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>If you want the derivatives of all the outputs with respect to all the inputs, yes.</p><p>In machine learning, we usually only care about one output (the cost) with respect to lots of inputs (the parameters) so backprop is great.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="vote-up  count-1" data-action="upvote" title="">
+
+<span class="updatable count" data-role="likes">1</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/134ihq8" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2365762112">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"><li class="post" id="post-2368599775"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/ob0/" class="user" data-action="profile" data-username="ob0">
+<img data-role="user-avatar" data-user="178747022" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/ob0/" data-action="profile" data-username="ob0" data-role="username">OB</a></span>
+
+<span><a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2365762112" class="parent-link" data-role="parent-link"><i aria-hidden="true" class="icon-forward" title="in reply to"></i> chrisolah</a></span>
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2368599775" data-role="relative-time" class="time-ago" title="Thursday, November 19, 2015 1:15 PM">
+8 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Thank you, Chris.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/1367ba7" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2368599775">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li></ul>
+
+</li></ul>
+
+</li><li class="post" id="post-2306480931"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/BohraKunal/" class="user" data-action="profile" data-username="BohraKunal">
+<img data-role="user-avatar" data-user="175871953" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/BohraKunal/" data-action="profile" data-username="BohraKunal" data-role="username">Kunal Bohra</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2306480931" data-role="relative-time" class="time-ago" title="Wednesday, October 14, 2015 4:24 AM">
+9 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Loved it.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/1257w2r" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2306480931">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li class="post" id="post-2248100739"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/disqus_VqXOgteJh4/" class="user" data-action="profile" data-username="disqus_VqXOgteJh4">
+<img data-role="user-avatar" data-user="174057916" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/disqus_VqXOgteJh4/" data-action="profile" data-username="disqus_VqXOgteJh4" data-role="username">Alejandro Martínez</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2248100739" data-role="relative-time" class="time-ago" title="Friday, September 11, 2015 10:23 AM">
+10 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Excellent.</p><p>Thank you for effort in simplified .</p><p>☺</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/116glmr" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2248100739">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li class="post" id="post-2236059804"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/masakinakada/" class="user" data-action="profile" data-username="masakinakada">
+<img data-role="user-avatar" data-user="173154300" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/masakinakada/" data-action="profile" data-username="masakinakada" data-role="username">Masaki Nakada</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2236059804" data-role="relative-time" class="time-ago" title="Friday, September 4, 2015 11:56 AM">
+10 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Loved this article! Thank you so much Christopher!</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/10zaisc" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2236059804">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li class="post" id="post-2230181637"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/deathbullet/" class="user" data-action="profile" data-username="deathbullet">
+<img data-role="user-avatar" data-user="114120911" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header>
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/deathbullet/" data-action="profile" data-username="deathbullet" data-role="username">deathbullet</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="http://colah.github.io/posts/2015-08-Backprop/#comment-2230181637" data-role="relative-time" class="time-ago" title="Tuesday, September 1, 2015 12:54 PM">
+10 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Lovely. Thanks !</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer>
+<menu>
+
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="reply">
+<i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="share">
+<a class="toggle"><i class="icon icon-mobile icon-share"></i><span class="text">Share ›</span></a>
+<ul>
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/10vsj5x" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2230181637">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" class="btn btn-small"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li></ul>
+
+<div class="load-more" data-role="more" style="display:none">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" data-action="more-posts" class="btn">Load more comments</a>
+</div>
+</div>
+
+</section>
+
+<div id="placement-bottom" data-tracking-area="discovery-south"><div class="post-list" style="height: auto; visibility: visible;"><div style="display: block; width: 100%;"><div id="discovery-main-c189" class="discovery-main">
+
+<section id="col-organic-c385" class="col-organic">
+<header class="discovery-col-header">
+<h2>Also on <strong>colah's blog</strong>
+</h2>
+</header>
+<ul class="discovery-posts" data-role="discovery-posts"><li class="discovery-post post-0" id="discovery-link-organic-4177574078">
+<a href="http://disq.us/url?url=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-09-Visual-Information%2F%3Atd4bhwjcyjWxS7zhn726f1jjcb4&amp;imp=7qifpma3rct17p&amp;prev_imp&amp;forum_id=2934426&amp;forum=colah&amp;thread_id=4084359668&amp;thread=4177574078&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=4177574078" class="publisher-anchor-color">
+
+<header class="discovery-post-header">
+<h3 title="Visual Information Theory">
+<span data-role="discovery-thread-title" class="title line-truncate" data-line-truncate="2">
+Visual Information Theory
+</span>
+</h3>
+
+<ul class="meta">
+<li class="comments">
+25 comments
+</li>
+<li class="time">9 months ago</li>
+</ul>
+</header>
+
+</a><a href="http://disq.us/url?url=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-09-Visual-Information%2F%3Atd4bhwjcyjWxS7zhn726f1jjcb4&amp;imp=7qifpma3rct17p&amp;prev_imp&amp;forum_id=2934426&amp;forum=colah&amp;thread_id=4084359668&amp;thread=4177574078&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=4177574078" class="top-comment" data-role="discovery-top-comment">
+<img alt="Avatar" data-role="discovery-avatar">
+<p><span class="user" data-role="discovery-top-comment-author">Heng</span> — <span data-role="discovery-top-comment-snippet" class="line-truncate" data-line-truncate="3">Great article! Just be curious about what tool you use to plot these figures?</span></p>
+</a>
+
+</li>
+<li class="discovery-post post-1" id="discovery-link-organic-4097174446">
+<a href="http://disq.us/url?url=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2Fdisqussion-60%3AwDBVwGKLeMhJV4uxc9e6K09nos0&amp;imp=7qifpma3rct17p&amp;prev_imp&amp;forum_id=2934426&amp;forum=colah&amp;thread_id=4084359668&amp;thread=4097174446&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=4097174446" class="publisher-anchor-color">
+
+<header class="discovery-post-header">
+<h3 title="Calculus on Computational Graphs: Backpropagation">
+<span data-role="discovery-thread-title" class="title line-truncate" data-line-truncate="2">
+Calculus on Computational Graphs: Backpropagation
+</span>
+</h3>
+
+<ul class="meta">
+<li class="comments">
+1 comment
+</li>
+<li class="time">10 months ago</li>
+</ul>
+</header>
+
+</a><a href="http://disq.us/url?url=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2Fdisqussion-60%3AwDBVwGKLeMhJV4uxc9e6K09nos0&amp;imp=7qifpma3rct17p&amp;prev_imp&amp;forum_id=2934426&amp;forum=colah&amp;thread_id=4084359668&amp;thread=4097174446&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=4097174446" class="top-comment" data-role="discovery-top-comment">
+<img alt="Avatar" data-role="discovery-avatar">
+<p><span class="user" data-role="discovery-top-comment-author">Jedd Haberstro</span> — <span data-role="discovery-top-comment-snippet" class="line-truncate" data-line-truncate="3"> Thank you for the insightful article. If it were possible not to do so in an overly complicating way, the expression tree example …</span></p>
+</a>
+
+</li>
+<li class="discovery-post post-2" id="discovery-link-organic-4114581751">
+<a href="http://disq.us/url?url=http%3A%2F%2Fcolah.github.io%2Fposts%2F2014-07-Conv-Nets-Modular%2Fdisqussion-56%3ABPoIzq55r2BPivuQuFl2BxP72rw&amp;imp=7qifpma3rct17p&amp;prev_imp&amp;forum_id=2934426&amp;forum=colah&amp;thread_id=4084359668&amp;thread=4114581751&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=4114581751" class="publisher-anchor-color">
+
+<header class="discovery-post-header">
+<h3 title="Conv Nets: A Modular Perspective">
+<span data-role="discovery-thread-title" class="title line-truncate" data-line-truncate="2">
+Conv Nets: A Modular Perspective
+</span>
+</h3>
+
+<ul class="meta">
+<li class="comments">
+2 comments
+</li>
+<li class="time">10 months ago</li>
+</ul>
+</header>
+
+</a><a href="http://disq.us/url?url=http%3A%2F%2Fcolah.github.io%2Fposts%2F2014-07-Conv-Nets-Modular%2Fdisqussion-56%3ABPoIzq55r2BPivuQuFl2BxP72rw&amp;imp=7qifpma3rct17p&amp;prev_imp&amp;forum_id=2934426&amp;forum=colah&amp;thread_id=4084359668&amp;thread=4114581751&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=4114581751" class="top-comment" data-role="discovery-top-comment">
+<img alt="Avatar" data-role="discovery-avatar">
+<p><span class="user" data-role="discovery-top-comment-author">Atcold</span> — <span data-role="discovery-top-comment-snippet" class="line-truncate" data-line-truncate="3">It's a logistic sigmoid function. Or, any non linearity, more in general.</span></p>
+</a>
+
+</li>
+<li class="discovery-post post-3" id="discovery-link-organic-4094010753">
+<a href="http://disq.us/url?url=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-09-NN-Types-FP%2Fdisqussion-10%3Av_E4NRd0EE585E4shTp9Rb6iiBA&amp;imp=7qifpma3rct17p&amp;prev_imp&amp;forum_id=2934426&amp;forum=colah&amp;thread_id=4084359668&amp;thread=4094010753&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=4094010753" class="publisher-anchor-color">
+
+<header class="discovery-post-header">
+<h3 title="Neural Networks, Types, and Functional Programming">
+<span data-role="discovery-thread-title" class="title line-truncate" data-line-truncate="2">
+Neural Networks, Types, and Functional Programming
+</span>
+</h3>
+
+<ul class="meta">
+<li class="comments">
+1 comment
+</li>
+<li class="time">10 months ago</li>
+</ul>
+</header>
+
+</a><a href="http://disq.us/url?url=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-09-NN-Types-FP%2Fdisqussion-10%3Av_E4NRd0EE585E4shTp9Rb6iiBA&amp;imp=7qifpma3rct17p&amp;prev_imp&amp;forum_id=2934426&amp;forum=colah&amp;thread_id=4084359668&amp;thread=4094010753&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=4094010753" class="top-comment" data-role="discovery-top-comment">
+<img alt="Avatar" data-role="discovery-avatar">
+<p><span class="user" data-role="discovery-top-comment-author">César Salgado</span> — <span data-role="discovery-top-comment-snippet" class="line-truncate" data-line-truncate="3">In "I wish to argue only that it plausible" "it plausible" should be "it is plausible"</span></p>
+</a>
+
+</li>
+</ul>
+</section>
+
+</div>
+</div></div></div>
+
+<div id="footer" data-tracking-area="footer">
+<ul class="disqus-footer">
+<li class="logo disqus-footer__item"><a href="https://disqus.com/" rel="nofollow" title="Powered by Disqus">Powered by Disqus</a></li>
+<li id="thread-subscribe-button" class="email disqus-footer__item"> 
+<div class="default">
+<a href="https://disqus.com/embed/comments/?base=default&amp;version=b98791869268dd98a49bb8187f4b3b14&amp;f=colah&amp;t_u=http%3A%2F%2Fcolah.github.io%2Fposts%2F2015-08-Backprop%2F&amp;t_d=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;t_t=Calculus%20on%20Computational%20Graphs%3A%20Backpropagation&amp;s_o=default#" rel="nofollow" data-action="subscribe" title="Subscribe and get email updates from this discussion"><i aria-hidden="true" class="icon icon-mail"></i><span class="clip">Subscribe</span> <i aria-hidden="true" class="icon icon-checkmark"></i></a>
+</div>
+<div class="form">
+<div class="input-wrapper"><input id="thread-subscribe-email" type="email" placeholder="yourname@email.com"></div>
+</div>
+</li>
+<li class="install disqus-footer__item">
+<a href="https://publishers.disqus.com/engage?utm_source=colah&amp;utm_medium=Disqus-Footer" rel="nofollow" target="_blank">
+<i aria-hidden="true" class="icon icon-disqus"></i>
+<span class="clip hidden-sm">Add Disqus to your site</span>
+<span class="clip visible-sm hidden-xs">Add Disqus</span>
+<span class="clip visible-xs">Add</span>
+</a>
+</li>
+<li class="privacy disqus-footer__item">
+<a href="https://help.disqus.com/customer/portal/articles/1657951?utm_source=disqus&amp;utm_medium=embed-footer&amp;utm_content=privacy-btn" rel="nofollow" target="_blank">
+<i aria-hidden="true" class="icon icon-lock"></i>
+<span class="clip">Privacy</span>
+</a>
+</li>
+</ul>
+</div>
+</div></body></html>

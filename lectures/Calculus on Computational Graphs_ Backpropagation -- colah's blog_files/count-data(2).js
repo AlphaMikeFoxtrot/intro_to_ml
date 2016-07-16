@@ -1,0 +1,5 @@
+var DISQUSWIDGETS;
+
+if (typeof DISQUSWIDGETS != 'undefined') {
+    DISQUSWIDGETS.displayCount({"text":{"and":"and","comments":{"zero":"0 Comments","multiple":"{num} Comments","one":"1 Comment"}},"counts":[{"id":"\/posts\/2015-08-Backprop\/disqussion-3","comments":0},{"id":"\/posts\/2015-08-Backprop\/disqussion-27","comments":0},{"id":"\/posts\/2015-08-Backprop\/disqussion-35","comments":0},{"id":"\/posts\/2015-08-Backprop\/disqussion-34","comments":0},{"id":"\/posts\/2015-08-Backprop\/disqussion-31","comments":0},{"id":"\/posts\/2015-08-Backprop\/disqussion-30","comments":0},{"id":"\/posts\/2015-08-Backprop\/disqussion-33","comments":0},{"id":"\/posts\/2015-08-Backprop\/disqussion-32","comments":0},{"id":"\/posts\/2015-08-Backprop\/disqussion-28","comments":0},{"id":"\/posts\/2015-08-Backprop\/disqussion-29","comments":0}]});
+}

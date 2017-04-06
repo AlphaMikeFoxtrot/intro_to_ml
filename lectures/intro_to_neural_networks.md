@@ -19,11 +19,13 @@ The derivative (from calculus) is measuring the instantaneous rate of change at 
 An example of the derivative is the power rule on x^n:
 
 `f = x^2`
+
 `f' = 2*x^1`
 
 In general:
 
 `f = x^n`
+
 `f' = n*x^(n-1)`
 
 ##Explanation of matrices
@@ -71,12 +73,14 @@ B = [[1 0]
 Then `A * B` is
 
 `[1*1 + 0*3 0*1 + 2*1]`
+
 `[3*1 + 0*4 3*0 + 4*1]`
 
 Which is 
 
 ```[[1 2]
-    [3 4]]```
+    [3 4]]
+```
 
 Wait a second! Doesn't this mean that we just ended up where we started!?  That's because B in this case is the identity matrix.  It's the matrix version of the number 1.  In general we can think of B as the transformation matrix, which applies transformations to the matrix A to translate it magnitudinally and directionally in space.  
 

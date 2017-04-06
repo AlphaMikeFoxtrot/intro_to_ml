@@ -1,18 +1,18 @@
-#Neural Networks
+# Neural Networks
 
-##What is it?
+## What is it?
 
 A Neural Network is loosely, a set of techniques in machine learning techniques to create mathematical models.  The reason I say a set of techniques, is because I like to think of neural networks as a framework for guessing the right mathematical model.  
 
 So how can we use a mathematical description of a thing?  Well, we can maximize it or minimize it by using calculus - this is known as optimization.  We can predict it's next value, by plugging in the necessary variables.  We can describe the process or thing with precision.  We can also compare it mathematical to other things, by looking at models with similar behavior.  More or less, with a mathematically accurate description of a thing, we know it precisely.  
 
-##Prerequistes
+## Prerequistes
 
 Most people just launch into the intuition of a neural network.  They try to tell you why they chose the layout they did.  But I'm here to tell you that the intuition is wrong and lies.  They came up with it after, which will be evident when you compare "neural networks" and how they actually work to other things.  There is a strong need in computer science to run very far away from mathematics.  Well, not today.  Because trust me, it will actually make things a lot easier.
 
 What we'll need is two techniques - the dot product from linear algebra and the derivative from calculus.  These two gems are all you are really doing when you apply a neural network to a bunch of data.  
 
-##Explanation of the derivative
+## Explanation of the derivative
 
 The derivative (from calculus) is measuring the instantaneous rate of change at a point.  So if the derivative is positive the mathematical function will increase as you plug in bigger values than the current point.  If the derivative is negative the mathematical function will decrease as you plug in bigger values than the current point.  
 
@@ -28,7 +28,7 @@ In general:
 
 `f' = n*x^(n-1)`
 
-##Explanation of matrices
+## Explanation of matrices
 
 A matrix is a representation of a mathematical equation where each column is a variable and each row is an equation.  And the row and column combination is a coefficient on that variable. 
 
@@ -39,7 +39,7 @@ So, `5x + 6y` and `7x + 4y` becomes:
  [7 4]]
 ```
 
-##Explanation of the dot product
+## Explanation of the dot product
 
 The dot product is when you take two rows of a matrix and create a single scalar (aka number).
 
@@ -59,7 +59,7 @@ So the dot product gives us information about our vectors (aka arrays).  Specifi
 
 Knowing the direction of two things is going to be very helpful for us (which is what the dot product tells us).  It tells us if they are moving closer together or if they are moving further apart!
 
-##Matrix multiplication
+## Matrix multiplication
 
 Matrix multiplication is the same thing as the dot product, except you do it over each row of the first matrix and each column of the second.  This gives you a new matrix.  Let's look at some examples:
 
@@ -88,11 +88,11 @@ So, we can think of matrix multiplication as a transformation to our first matri
 
 This notion of transformation is going to be very, very important.  
 
-##Putting it together
+## Putting it together
 
 So we can measure whether things are going to go up in the very near future and whether things are going down in the very near future (using the derivative).  And we can change things (using transformation matrices via matrix multiplication).  Using these two techniques, I claim we can guess an initial mathematical model and then check to see how good our guess was (with the derivative).  Then we can transform our model using matrix multiplication.  And then guess again, until our model get's good enough.  Once our model is good enough, we can use it do all the fun things I mentioned at the beginning.  
 
-##Our first example neural network
+## Our first example neural network
 
 This first example comes from [Andrew Trask](http://iamtrask.github.io/2015/07/12/basic-python-network/) - not only is he awesome for having an evil super villian name, he's a super nice guy!  And very good at explaining things.  
 
@@ -153,11 +153,11 @@ Okay, so that's it - you can all go home.  Bye!
 
 Just kidding `:P`
 
-##Neural networks are a framework
+## Neural networks are a framework
 
 Remember at the beginning of the talk when I said neural networks are a framework?  That's because they aren't all implemented using the above techniques.  The derivative, matrix multiplication and the sigmoid function are just parameters that we plugged in to do one thing - guess and check.  So if we generalize this out and cut away those specifics, what are we left with?  
 
-##The steps of a neural network
+## The steps of a neural network
 
 Initialization - Initialize a random set of weights for our guess.  These weights are called our synapses, because there is an element of randomness.  Synapses in the brain fire randomly.  It's a poetic, but overly intuitive description of what's going on.
 
@@ -597,7 +597,7 @@ It turns out writing this isn't particularly harder, but a lot more tedious and 
 
 So I leave it as an exercise to generalize out this code, like we did with the previous code.  
 
-##Convolutional Neural networks
+## Convolutional Neural networks
 
 A convolution is a sliding window function applied to a matrix. Convolutional neural networks work differently than recurrent neural networks or vanilla neural networks.  Rather than learning over the entire space, convolutional neural networks work over a subset of the input data to learn local patterns.  
 
@@ -612,7 +612,7 @@ We won't bother even trying to implement one our selves, but here's a strategy o
 So like, recurrent neural networks assumed a sense of time or an ordering, convolutional neural networks assume a sense of locality.  That things around a point will be similar.  If you have the network trained on say, pictures of a cat, you can have each piece learn the features specific to that part of the cats face, and then identify them.  
 
 
-##Neural network applications
+## Neural network applications
 
 A neural stack - teaching a neural network when to push and pop from a stack:
 
